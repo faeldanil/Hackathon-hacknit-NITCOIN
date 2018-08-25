@@ -53,6 +53,7 @@ namespace ScoreClass.Web
                 app.UseExceptionHandler("/Home/Error");
             }
 
+
             app.UseStaticFiles();
 
             app.UseAuthentication();
