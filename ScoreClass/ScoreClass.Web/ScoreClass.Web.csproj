@@ -26,6 +26,7 @@
   <ItemGroup>
     <Folder Include="Models\Campanhas\" />
     <Folder Include="Models\Incentivos\" />
+    <Folder Include="Models\Cadastros\" />
   </ItemGroup>
 
 </Project>
