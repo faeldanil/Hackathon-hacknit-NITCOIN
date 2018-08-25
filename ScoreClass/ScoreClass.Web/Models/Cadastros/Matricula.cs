@@ -10,8 +10,9 @@ namespace ScoreClass.Web.Models.Cadastros
         public long Id { get; set; }
         public string Codigo { get; set; }
         public virtual Aluno Aluno { get; set; }
-        public virtual IEnumerable<Pontualidade> Pontualidades { get; set; }
-        public virtual IEnumerable<Materia> Materias { get; set; }
+		public virtual Turma Turma { get; set; }
+		public virtual List<Pontualidade> Pontualidades { get; set; }
+        public virtual List<Materia> Materias { get; set; }
 
         string[] _alfabeto = { "A", "B", "C", "D", "D", "F", "G", "H" };
 

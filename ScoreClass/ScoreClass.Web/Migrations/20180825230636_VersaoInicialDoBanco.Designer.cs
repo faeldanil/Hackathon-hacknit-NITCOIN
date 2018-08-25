@@ -10,10 +10,10 @@ using ScoreClass.Web.Models.Cadastros;
 using ScoreClass.Web.Models.Incentivos;
 using System;
 
-namespace ScoreClass.Web.Data.Migrations
+namespace ScoreClass.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180825224104_VersaoInicialDoBanco")]
+    [Migration("20180825230636_VersaoInicialDoBanco")]
     partial class VersaoInicialDoBanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -277,9 +277,13 @@ namespace ScoreClass.Web.Data.Migrations
 
                     b.Property<string>("Codigo");
 
+                    b.Property<long?>("TurmaId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AlunoId");
+
+                    b.HasIndex("TurmaId");
 
                     b.ToTable("Matricula");
                 });
@@ -288,6 +292,8 @@ namespace ScoreClass.Web.Data.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Bimestre");
 
                     b.Property<string>("Descricao");
 
@@ -559,8 +565,12 @@ namespace ScoreClass.Web.Data.Migrations
             modelBuilder.Entity("ScoreClass.Web.Models.Cadastros.Matricula", b =>
                 {
                     b.HasOne("ScoreClass.Web.Models.Cadastros.Aluno", "Aluno")
-                        .WithMany()
+                        .WithMany("Matriculas")
                         .HasForeignKey("AlunoId");
+
+                    b.HasOne("ScoreClass.Web.Models.Cadastros.Turma", "Turma")
+                        .WithMany("Matriculas")
+                        .HasForeignKey("TurmaId");
                 });
 
             modelBuilder.Entity("ScoreClass.Web.Models.Cadastros.Nota", b =>

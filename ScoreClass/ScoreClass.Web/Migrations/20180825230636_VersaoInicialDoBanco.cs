@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
-namespace ScoreClass.Web.Data.Migrations
+namespace ScoreClass.Web.Migrations
 {
     public partial class VersaoInicialDoBanco : Migration
     {
@@ -360,7 +360,8 @@ namespace ScoreClass.Web.Data.Migrations
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     AlunoId = table.Column<long>(nullable: true),
-                    Codigo = table.Column<string>(nullable: true)
+                    Codigo = table.Column<string>(nullable: true),
+                    TurmaId = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -369,6 +370,12 @@ namespace ScoreClass.Web.Data.Migrations
                         name: "FK_Matricula_Aluno_AlunoId",
                         column: x => x.AlunoId,
                         principalTable: "Aluno",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Matricula_Turma_TurmaId",
+                        column: x => x.TurmaId,
+                        principalTable: "Turma",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -484,6 +491,7 @@ namespace ScoreClass.Web.Data.Migrations
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Bimestre = table.Column<string>(nullable: true),
                     Descricao = table.Column<string>(nullable: true),
                     MateriaId = table.Column<long>(nullable: true)
                 },
@@ -578,6 +586,11 @@ namespace ScoreClass.Web.Data.Migrations
                 column: "AlunoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Matricula_TurmaId",
+                table: "Matricula",
+                column: "TurmaId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_NitCoin_ResponsavelId",
                 table: "NitCoin",
                 column: "ResponsavelId");
@@ -656,9 +669,6 @@ namespace ScoreClass.Web.Data.Migrations
                 name: "Pontualidade");
 
             migrationBuilder.DropTable(
-                name: "Turma");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
@@ -669,9 +679,6 @@ namespace ScoreClass.Web.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Materia");
-
-            migrationBuilder.DropTable(
-                name: "Escola");
 
             migrationBuilder.DropTable(
                 name: "Fidelidade");
@@ -689,7 +696,13 @@ namespace ScoreClass.Web.Data.Migrations
                 name: "Aluno");
 
             migrationBuilder.DropTable(
+                name: "Turma");
+
+            migrationBuilder.DropTable(
                 name: "Responsavel");
+
+            migrationBuilder.DropTable(
+                name: "Escola");
 
             migrationBuilder.DropTable(
                 name: "Email");

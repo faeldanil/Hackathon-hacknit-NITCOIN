@@ -15,7 +15,36 @@ namespace ScoreClass.Web.Data
 		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
 			: base(options)
 		{
+			Seed();
+		}
 
+		private void Seed()
+		{
+			if (!Responsavel.Any())
+			{
+				var escola = new Escola { Nome = "ScoreClass", Turmas = new List<Turma>() };
+				var turma = new Turma { Nome = "7º Ano", Escola = escola};
+				escola.Turmas.Add(turma);
+				
+				var responsavel = new Responsavel() { Nome = "Glautter", Email = new Email { Descricao = "glautterg@gmail.com" } };
+				var aluno1 = new Aluno { Nome = "Aluno 1", Reponsavel = responsavel, Email = new Email { Descricao = "aluno1@nitcoin.com.br" } };
+				var aluno2 = new Aluno { Nome = "Aluno 2", Reponsavel = responsavel, Email = new Email { Descricao = "aluno2@nitcoin.com.br" } };
+
+				var matricula1 = new Matricula { Aluno = aluno1, Turma = turma };
+				var matricula2 = new Matricula { Aluno = aluno2, Turma = turma };
+
+				aluno1.Matriculas.Add(matricula1);
+				aluno2.Matriculas.Add(matricula1);
+
+				turma.Matriculas.Add(matricula1);
+				turma.Matriculas.Add(matricula2);
+
+				Responsavel.Add(responsavel);
+				Aluno.Add(aluno1);
+				Aluno.Add(aluno2);
+				Escola.Add(escola);
+				SaveChanges();
+			}
 		}
 
 		protected override void OnModelCreating(ModelBuilder builder)

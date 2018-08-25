@@ -11,6 +11,7 @@ namespace ScoreClass.Web.Models.Cadastros
         [Key]
         public long Id { get; set; }
         public string Descricao { get; set; }
-        public Materia Materia { get; set; }
+		public String Bimestre { get; set; }
+		public Materia Materia { get; set; }
     }
 }

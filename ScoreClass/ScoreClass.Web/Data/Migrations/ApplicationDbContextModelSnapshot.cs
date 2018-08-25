@@ -276,9 +276,13 @@ namespace ScoreClass.Web.Data.Migrations
 
                     b.Property<string>("Codigo");
 
+                    b.Property<long?>("TurmaId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AlunoId");
+
+                    b.HasIndex("TurmaId");
 
                     b.ToTable("Matricula");
                 });
@@ -287,6 +291,8 @@ namespace ScoreClass.Web.Data.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Bimestre");
 
                     b.Property<string>("Descricao");
 
@@ -558,8 +564,12 @@ namespace ScoreClass.Web.Data.Migrations
             modelBuilder.Entity("ScoreClass.Web.Models.Cadastros.Matricula", b =>
                 {
                     b.HasOne("ScoreClass.Web.Models.Cadastros.Aluno", "Aluno")
-                        .WithMany()
+                        .WithMany("Matriculas")
                         .HasForeignKey("AlunoId");
+
+                    b.HasOne("ScoreClass.Web.Models.Cadastros.Turma", "Turma")
+                        .WithMany("Matriculas")
+                        .HasForeignKey("TurmaId");
                 });
 
             modelBuilder.Entity("ScoreClass.Web.Models.Cadastros.Nota", b =>
