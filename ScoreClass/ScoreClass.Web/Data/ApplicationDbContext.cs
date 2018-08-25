@@ -15,13 +15,7 @@ namespace ScoreClass.Web.Data
 		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
 			: base(options)
 		{
-			//if (!Responsavel.Any())
-			//{
-			//	var responsavel = new Responsavel() { Nome = "Glautter" };
-			//	Responsavel.Add(responsavel);
-			//	Aluno.Add(new Aluno() { Nome = "Aluno 1", Reponsavel = responsavel });
-			//	Aluno.Add(new Aluno() { Nome = "Aluno 1", Reponsavel = responsavel });
-			//}
+
 		}
 
 		protected override void OnModelCreating(ModelBuilder builder)
@@ -29,18 +23,18 @@ namespace ScoreClass.Web.Data
 			base.OnModelCreating(builder);
 		}
 
-		public DbSet<Aluno> Aluno { get; set; }
-		public DbSet<Escola> Escola { get; set; }
-		public DbSet<Matricula> Matricula { get; set; }
-		public DbSet<Materia> Materia { get; set; }
-		public DbSet<Responsavel> Responsavel { get; set; }
-		public DbSet<Pontualidade> Pontualidade { get; set; }
-		public DbSet<Nota> Nota { get; set; }
-		public DbSet<NitCoin> NitCoin { get; set; }
-		public DbSet<Ocorrencia> Ocorrencia { get; set; }
-		public DbSet<Turma> Turma { get; set; }
-		public DbSet<Frequencia> Frequencia { get; set; }
-		public DbSet<Professor> Professor { get; set; }
-		public DbSet<Voucher> Voucher { get; set; }
+		public virtual DbSet<Aluno> Aluno { get; set; }
+		public virtual DbSet<Escola> Escola { get; set; }
+		public virtual DbSet<Matricula> Matricula { get; set; }
+		public virtual DbSet<Materia> Materia { get; set; }
+		public virtual DbSet<Responsavel> Responsavel { get; set; }
+		public virtual DbSet<Pontualidade> Pontualidade { get; set; }
+		public virtual DbSet<Nota> Nota { get; set; }
+		public virtual DbSet<NitCoin> NitCoin { get; set; }
+		public virtual DbSet<Ocorrencia> Ocorrencia { get; set; }
+		public virtual DbSet<Turma> Turma { get; set; }
+		public virtual DbSet<Frequencia> Frequencia { get; set; }
+		public virtual DbSet<Professor> Professor { get; set; }
+		public virtual DbSet<Voucher> Voucher { get; set; }
 	}
 }
