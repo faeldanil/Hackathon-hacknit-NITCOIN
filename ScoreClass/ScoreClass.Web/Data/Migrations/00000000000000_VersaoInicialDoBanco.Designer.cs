@@ -13,7 +13,7 @@ using System;
 namespace ScoreClass.Web.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180825223553_VersaoInicialDoBanco")]
+    [Migration("20180825224104_VersaoInicialDoBanco")]
     partial class VersaoInicialDoBanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
