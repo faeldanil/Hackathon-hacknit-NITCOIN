@@ -4,3 +4,6 @@
 
 /.vs
 /ScoreClass/.vs
+/ScoreClass/ScoreClass.Testes/obj
+/ScoreClass/ScoreClass.Web/obj
+/ScoreClass/ScoreClass.Web/bin
