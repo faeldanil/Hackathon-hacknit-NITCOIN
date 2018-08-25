@@ -1,0 +1,11 @@
+C:\HackNit\hacknit-educacao\ScoreClass\ScoreClass.Web\bin\Debug\netcoreapp2.0\ScoreClass.Web.deps.json
+C:\HackNit\hacknit-educacao\ScoreClass\ScoreClass.Web\bin\Debug\netcoreapp2.0\ScoreClass.Web.runtimeconfig.json
+C:\HackNit\hacknit-educacao\ScoreClass\ScoreClass.Web\bin\Debug\netcoreapp2.0\ScoreClass.Web.runtimeconfig.dev.json
+C:\HackNit\hacknit-educacao\ScoreClass\ScoreClass.Web\bin\Debug\netcoreapp2.0\ScoreClass.Web.dll
+C:\HackNit\hacknit-educacao\ScoreClass\ScoreClass.Web\bin\Debug\netcoreapp2.0\ScoreClass.Web.pdb
+C:\HackNit\hacknit-educacao\ScoreClass\ScoreClass.Web\obj\Debug\netcoreapp2.0\ScoreClass.Web.csproj.CoreCompileInputs.cache
+C:\HackNit\hacknit-educacao\ScoreClass\ScoreClass.Web\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\HackNit\hacknit-educacao\ScoreClass\ScoreClass.Web\obj\Debug\netcoreapp2.0\ScoreClass.Web.AssemblyInfoInputs.cache
+C:\HackNit\hacknit-educacao\ScoreClass\ScoreClass.Web\obj\Debug\netcoreapp2.0\ScoreClass.Web.AssemblyInfo.cs
+C:\HackNit\hacknit-educacao\ScoreClass\ScoreClass.Web\obj\Debug\netcoreapp2.0\ScoreClass.Web.dll
+C:\HackNit\hacknit-educacao\ScoreClass\ScoreClass.Web\obj\Debug\netcoreapp2.0\ScoreClass.Web.pdb
