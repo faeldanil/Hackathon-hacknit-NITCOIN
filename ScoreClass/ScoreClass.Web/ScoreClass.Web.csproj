@@ -5,6 +5,11 @@
     <UserSecretsId>aspnet-ScoreClass.Web-E8EF8CD6-942F-4A89-9B4B-A33D05EC7D33</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20180825165326_ClassesCadastro.cs" />
+    <Compile Remove="Data\Migrations\20180825165326_ClassesCadastro.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
@@ -21,7 +26,6 @@
   <ItemGroup>
     <Folder Include="Models\Campanhas\" />
     <Folder Include="Models\Incentivos\" />
-    <Folder Include="Models\Cadastros\" />
   </ItemGroup>
 
 </Project>

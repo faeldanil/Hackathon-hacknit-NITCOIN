@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ScoreClass.Web.Models;
+using ScoreClass.Web.Models.Cadastros;
+using ScoreClass.Web.Models.Incentivos;
 
 namespace ScoreClass.Web.Data
 {
@@ -18,9 +20,15 @@ namespace ScoreClass.Web.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            // Customize the ASP.NET Identity model and override the defaults if needed.
-            // For example, you can rename the ASP.NET Identity table names and more.
-            // Add your customizations after calling base.OnModelCreating(builder);
         }
+
+        public DbSet<Aluno> Aluno { get; set; }
+        public DbSet<Aluno> Escola { get; set; }
+        public DbSet<Matricula> Matricula { get; set; }
+        public DbSet<Materia> Materia { get; set; }
+        public DbSet<Responsavel> Responsavel { get; set; }
+        public DbSet<Pontualidade> Pontualidade { get; set; }
+        public DbSet<Nota> Nota { get; set; }
+        public DbSet<NitCoin> NitCoin { get; set; }
     }
 }
