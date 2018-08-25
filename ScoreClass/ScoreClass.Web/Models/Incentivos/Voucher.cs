@@ -11,8 +11,6 @@ namespace ScoreClass.Web.Models.Incentivos
 
 		[Key]
 		public Int64 Id { get; set; }
-		public virtual Responsavel Responsavel { get; set; }
-		public virtual NitCoin NitCoinOrigem { get; set; }
 		public virtual Fidelidade Fidelidade { get; set; }
 		public Int32 Quantidade { get; set; }
 		public Decimal Valor { get; set; }

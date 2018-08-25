@@ -16,7 +16,7 @@ namespace ScoreClass.Web.Models.Cadastros
 		public string Telefone { get; set; }
 		public string Cpf { get; set; }
 		public virtual List<NitCoin> NitCoins { get; set; } = new List<NitCoin>();
-		public virtual List<Voucher> Vouchers { get; set; } = new List<Voucher>();
+		public virtual IEnumerable<Voucher> Vouchers { get => NitCoins.Select(nc => nc.Voucher).Where(v => v != null); }
 		public IEnumerable<Voucher> VouchersAtivos { get => Vouchers.Where(v => v.Ativo); }
 
 		public int ObterSaldo()
@@ -44,27 +44,25 @@ namespace ScoreClass.Web.Models.Cadastros
 
 			var dataHoraSolicitacao = DateTime.Now;
 
-			var nitCoin = new NitCoin
-			{
-				Responsavel = this,
-				Quantidade = -quantidade,
-				Registro = dataHoraSolicitacao,
-				Descricao = $"Resgate Voucher de {fidelidade.Descricao}",
-			};
-
 			var voucher = new Voucher()
 			{
-				Responsavel = this,
 				Fidelidade = fidelidade,
-				NitCoinOrigem = nitCoin,
 				Quantidade = quantidade,
 				Validade = dataHoraSolicitacao.AddDays(fidelidade.TempoVigenciaEmDias),
 				Valor = fidelidade.Valor,
 				TipoValor = fidelidade.TipoValor,
 			};
 
+			var nitCoin = new NitCoin
+			{
+				Responsavel = this,
+				Voucher = voucher,
+				Quantidade = -quantidade,
+				Registro = dataHoraSolicitacao,
+				Descricao = $"Resgate Voucher de {fidelidade.Descricao}",
+			};
+
 			NitCoins.Add(nitCoin);
-			Vouchers.Add(voucher);
 
 			var novoSaldoAtual = ObterSaldo();
 			if (novoSaldoAtual <= 0)

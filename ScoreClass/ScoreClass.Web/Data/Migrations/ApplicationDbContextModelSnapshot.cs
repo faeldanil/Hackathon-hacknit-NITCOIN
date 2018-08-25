@@ -222,7 +222,7 @@ namespace ScoreClass.Web.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Escola_1");
+                    b.ToTable("Escola");
                 });
 
             modelBuilder.Entity("ScoreClass.Web.Models.Cadastros.Frequencia", b =>
@@ -386,6 +386,8 @@ namespace ScoreClass.Web.Data.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Descricao");
+
                     b.Property<DateTime>("FimVigencia");
 
                     b.Property<DateTime>("InicioVigencia");
@@ -420,9 +422,13 @@ namespace ScoreClass.Web.Data.Migrations
 
                     b.Property<long?>("ResponsavelId");
 
+                    b.Property<long?>("VoucherId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ResponsavelId");
+
+                    b.HasIndex("VoucherId");
 
                     b.ToTable("NitCoin");
                 });
@@ -446,13 +452,15 @@ namespace ScoreClass.Web.Data.Migrations
 
                     b.Property<long?>("FidelidadeId");
 
-                    b.Property<long?>("NitCoinOrigemId");
-
                     b.Property<int>("Quantidade");
 
-                    b.Property<bool>("Resgatado");
+                    b.Property<DateTime?>("Resgatado");
 
                     b.Property<long?>("ResponsavelId");
+
+                    b.Property<long?>("ResponsavelId1");
+
+                    b.Property<long?>("ResponsavelId2");
 
                     b.Property<int>("TipoValor");
 
@@ -464,9 +472,11 @@ namespace ScoreClass.Web.Data.Migrations
 
                     b.HasIndex("FidelidadeId");
 
-                    b.HasIndex("NitCoinOrigemId");
-
                     b.HasIndex("ResponsavelId");
+
+                    b.HasIndex("ResponsavelId1");
+
+                    b.HasIndex("ResponsavelId2");
 
                     b.ToTable("Voucher");
                 });
@@ -580,7 +590,7 @@ namespace ScoreClass.Web.Data.Migrations
             modelBuilder.Entity("ScoreClass.Web.Models.Cadastros.Turma", b =>
                 {
                     b.HasOne("ScoreClass.Web.Models.Cadastros.Escola", "Escola")
-                        .WithMany()
+                        .WithMany("Turmas")
                         .HasForeignKey("EscolaId");
                 });
 
@@ -596,6 +606,10 @@ namespace ScoreClass.Web.Data.Migrations
                     b.HasOne("ScoreClass.Web.Models.Cadastros.Responsavel", "Responsavel")
                         .WithMany("NitCoins")
                         .HasForeignKey("ResponsavelId");
+
+                    b.HasOne("ScoreClass.Web.Models.Incentivos.Voucher", "Voucher")
+                        .WithMany()
+                        .HasForeignKey("VoucherId");
                 });
 
             modelBuilder.Entity("ScoreClass.Web.Models.Incentivos.Voucher", b =>
@@ -604,13 +618,17 @@ namespace ScoreClass.Web.Data.Migrations
                         .WithMany()
                         .HasForeignKey("FidelidadeId");
 
-                    b.HasOne("ScoreClass.Web.Models.Incentivos.NitCoin", "NitCoinOrigem")
-                        .WithMany()
-                        .HasForeignKey("NitCoinOrigemId");
-
-                    b.HasOne("ScoreClass.Web.Models.Cadastros.Responsavel", "Responsavel")
+                    b.HasOne("ScoreClass.Web.Models.Cadastros.Responsavel")
                         .WithMany("Vouchers")
                         .HasForeignKey("ResponsavelId");
+
+                    b.HasOne("ScoreClass.Web.Models.Cadastros.Responsavel")
+                        .WithMany("VouchersAtivos")
+                        .HasForeignKey("ResponsavelId1");
+
+                    b.HasOne("ScoreClass.Web.Models.Cadastros.Responsavel")
+                        .WithMany()
+                        .HasForeignKey("ResponsavelId2");
                 });
 #pragma warning restore 612, 618
         }

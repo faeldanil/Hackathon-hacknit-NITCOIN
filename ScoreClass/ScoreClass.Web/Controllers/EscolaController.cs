@@ -22,7 +22,7 @@ namespace ScoreClass.Web.Controllers
         // GET: Escola
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Escola_1.ToListAsync());
+            return View(await _context.Escola.ToListAsync());
         }
 
         // GET: Escola/Details/5
@@ -33,7 +33,7 @@ namespace ScoreClass.Web.Controllers
                 return NotFound();
             }
 
-            var escola = await _context.Escola_1
+            var escola = await _context.Escola
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (escola == null)
             {
@@ -73,7 +73,7 @@ namespace ScoreClass.Web.Controllers
                 return NotFound();
             }
 
-            var escola = await _context.Escola_1.SingleOrDefaultAsync(m => m.Id == id);
+            var escola = await _context.Escola.SingleOrDefaultAsync(m => m.Id == id);
             if (escola == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace ScoreClass.Web.Controllers
                 return NotFound();
             }
 
-            var escola = await _context.Escola_1
+            var escola = await _context.Escola
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (escola == null)
             {
@@ -139,15 +139,15 @@ namespace ScoreClass.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
-            var escola = await _context.Escola_1.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Escola_1.Remove(escola);
+            var escola = await _context.Escola.SingleOrDefaultAsync(m => m.Id == id);
+            _context.Escola.Remove(escola);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool EscolaExists(long id)
         {
-            return _context.Escola_1.Any(e => e.Id == id);
+            return _context.Escola.Any(e => e.Id == id);
         }
     }
 }

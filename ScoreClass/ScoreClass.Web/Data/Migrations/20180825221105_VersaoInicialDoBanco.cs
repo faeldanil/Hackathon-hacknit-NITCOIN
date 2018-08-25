@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ScoreClass.Web.Data.Migrations
 {
-    public partial class classeCpf : Migration
+    public partial class VersaoInicialDoBanco : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
