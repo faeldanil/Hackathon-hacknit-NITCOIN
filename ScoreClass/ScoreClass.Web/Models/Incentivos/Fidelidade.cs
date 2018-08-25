@@ -20,5 +20,6 @@ namespace ScoreClass.Web.Models.Incentivos
 		public TipoValor TipoValor { get; internal set; }
 		public Int32 TaxaConversao { get; set; }
 		public Int32 TempoVigenciaEmDias { get; set; }
+		public String Descricao { get; set; }
 	}
 }

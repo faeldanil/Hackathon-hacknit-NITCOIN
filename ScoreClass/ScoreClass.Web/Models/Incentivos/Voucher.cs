@@ -1,11 +1,14 @@
 ﻿using ScoreClass.Web.Models.Cadastros;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace ScoreClass.Web.Models.Incentivos
 {
 	public class Voucher
 	{
+		private static readonly Random rand = new Random();
+
 		[Key]
 		public Int64 Id { get; set; }
 		public virtual Responsavel Responsavel { get; set; }
@@ -15,12 +18,25 @@ namespace ScoreClass.Web.Models.Incentivos
 		public Decimal Valor { get; set; }
 		public String Codigo { get; set; }
 		public DateTime Validade { get; set; }
-		public Boolean Resgatado { get; set; }
+		public DateTime? Resgatado { get; set; }
 		public TipoValor TipoValor { get; internal set; }
+		public Boolean Ativo { get => (Validade >= DateTime.Now) && !Resgatado.HasValue; }
 
 		public Voucher()
 		{
+			Codigo = String.Join("", DateTime.Now.Ticks.ToString().Substring(1, 13).Select(Generate));
+		}
 
+		private Char Generate(char arg)
+		{
+			const string opcoes = "AB1CDEF3GH4J7KL8MN9PQRSTUVWXYZ";
+			var index = (Convert.ToInt32(arg.ToString()) * 3) + (rand.Next(0, 100) % 3);
+			return opcoes[index];
+		}
+
+		public void Resgatar()
+		{
+			Resgatado = DateTime.Now;
 		}
 	}
 }

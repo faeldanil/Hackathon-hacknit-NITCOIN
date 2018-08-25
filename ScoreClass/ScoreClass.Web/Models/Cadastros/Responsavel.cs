@@ -17,6 +17,7 @@ namespace ScoreClass.Web.Models.Cadastros
 		public string Cpf { get; set; }
 		public virtual List<NitCoin> NitCoins { get; set; } = new List<NitCoin>();
 		public virtual List<Voucher> Vouchers { get; set; } = new List<Voucher>();
+		public IEnumerable<Voucher> VouchersAtivos { get => Vouchers.Where(v => v.Ativo); }
 
 		public int ObterSaldo()
 		{
@@ -34,13 +35,12 @@ namespace ScoreClass.Web.Models.Cadastros
 			NitCoins.Add(nitCoin);
 		}
 
-
 		public Voucher GerarVoucher(Fidelidade fidelidade)
 		{
 			var saldoAtual = ObterSaldo();
 			var quantidade = fidelidade.TaxaConversao;
 			if ((saldoAtual <= 0) || (saldoAtual < quantidade))
-				throw new NitCoinException("Você não tem saldo suficiente para gerar este Voucher");
+				throw new NitCoinException($"Você não tem saldo suficiente para gerar este Voucher de {fidelidade.Descricao}");
 
 			var dataHoraSolicitacao = DateTime.Now;
 
@@ -49,7 +49,7 @@ namespace ScoreClass.Web.Models.Cadastros
 				Responsavel = this,
 				Quantidade = -quantidade,
 				Registro = dataHoraSolicitacao,
-				Descricao = "Resgate Voucher",
+				Descricao = $"Resgate Voucher de {fidelidade.Descricao}",
 			};
 
 			var voucher = new Voucher()
@@ -68,7 +68,7 @@ namespace ScoreClass.Web.Models.Cadastros
 
 			var novoSaldoAtual = ObterSaldo();
 			if (novoSaldoAtual <= 0)
-				throw new NitCoinException("Você não tem saldo suficiente para gerar este Voucher");
+				throw new NitCoinException($"Você não tem saldo suficiente para gerar este Voucher de {fidelidade.Descricao}");
 
 			return voucher;
 		}
