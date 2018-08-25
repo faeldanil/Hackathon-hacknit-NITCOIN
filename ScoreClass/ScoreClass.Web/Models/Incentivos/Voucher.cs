@@ -12,9 +12,15 @@ namespace ScoreClass.Web.Models.Incentivos
 		public virtual NitCoin NitCoinOrigem { get; set; }
 		public virtual Fidelidade Fidelidade { get; set; }
 		public Int32 Quantidade { get; set; }
-		public Int32 Valor { get; set; }
+		public Decimal Valor { get; set; }
 		public String Codigo { get; set; }
 		public DateTime Validade { get; set; }
 		public Boolean Resgatado { get; set; }
+		public TipoValor TipoValor { get; internal set; }
+
+		public Voucher()
+		{
+
+		}
 	}
 }

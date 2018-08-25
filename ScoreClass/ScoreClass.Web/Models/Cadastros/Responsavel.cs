@@ -7,12 +7,12 @@ using System.Linq;
 namespace ScoreClass.Web.Models.Cadastros
 {
 	public class Responsavel
-    {
-        [Key]
-        public long Id { get;  set; }
-        public string Nome { get;  set; }
-        public Email Email { get;  set; }
-        public string Telefone { get;  set; }
+	{
+		[Key]
+		public long Id { get; set; }
+		public string Nome { get; set; }
+		public Email Email { get; set; }
+		public string Telefone { get; set; }
 
 		public virtual List<NitCoin> NitCoins { get; set; } = new List<NitCoin>();
 		public virtual List<Voucher> Vouchers { get; set; } = new List<Voucher>();
@@ -36,11 +36,32 @@ namespace ScoreClass.Web.Models.Cadastros
 
 		public Voucher GerarVoucher(Fidelidade fidelidade)
 		{
-			var voucher = new Voucher { Fidelidade = fidelidade, Responsavel = this };
+			var quantidade = fidelidade.TaxaConversao;
+			var dataHoraSolicitacao = DateTime.Now;
+
+			var nitCoin = new NitCoin
+			{
+				Responsavel = this,
+				Quantidade = -quantidade,
+				Registro = dataHoraSolicitacao,
+				Descricao = "Resgate Voucher",
+			};
+
+			var voucher = new Voucher()
+			{
+				Responsavel = this,
+				Fidelidade = fidelidade,
+				NitCoinOrigem = nitCoin,
+				Quantidade = quantidade,
+				Validade = dataHoraSolicitacao.AddDays(fidelidade.TempoVigenciaEmDias),
+				Valor = fidelidade.Valor,
+				TipoValor = fidelidade.TipoValor,
+			};
+
+			NitCoins.Add(nitCoin);
+			Vouchers.Add(voucher);
 
 			return voucher;
 		}
-
-		
 	}
 }
