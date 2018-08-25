@@ -460,8 +460,6 @@ namespace ScoreClass.Web.Data.Migrations
 
                     b.Property<long?>("ResponsavelId1");
 
-                    b.Property<long?>("ResponsavelId2");
-
                     b.Property<int>("TipoValor");
 
                     b.Property<DateTime>("Validade");
@@ -475,8 +473,6 @@ namespace ScoreClass.Web.Data.Migrations
                     b.HasIndex("ResponsavelId");
 
                     b.HasIndex("ResponsavelId1");
-
-                    b.HasIndex("ResponsavelId2");
 
                     b.ToTable("Voucher");
                 });
@@ -625,10 +621,6 @@ namespace ScoreClass.Web.Data.Migrations
                     b.HasOne("ScoreClass.Web.Models.Cadastros.Responsavel")
                         .WithMany("VouchersAtivos")
                         .HasForeignKey("ResponsavelId1");
-
-                    b.HasOne("ScoreClass.Web.Models.Cadastros.Responsavel")
-                        .WithMany()
-                        .HasForeignKey("ResponsavelId2");
                 });
 #pragma warning restore 612, 618
         }

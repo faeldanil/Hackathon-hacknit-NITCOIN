@@ -15,19 +15,18 @@ namespace ScoreClass.Web.Data
 		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
 			: base(options)
 		{
+			//if (!Responsavel.Any())
+			//{
+			//	var responsavel = new Responsavel() { Nome = "Glautter" };
+			//	Responsavel.Add(responsavel);
+			//	Aluno.Add(new Aluno() { Nome = "Aluno 1", Reponsavel = responsavel });
+			//	Aluno.Add(new Aluno() { Nome = "Aluno 1", Reponsavel = responsavel });
+			//}
 		}
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
 			base.OnModelCreating(builder);
-
-			builder.Entity<Voucher>().HasOne<Responsavel>();
-
-/*			var responsavel = new Responsavel() { Nome = "Glautter" };
-			Responsavel.Add(responsavel);
-			Aluno.Add(new Aluno() { Nome = "Aluno 1", Reponsavel = responsavel });
-			Aluno.Add(new Aluno() { Nome = "Aluno 1", Reponsavel = responsavel });
-*/
 		}
 
 		public DbSet<Aluno> Aluno { get; set; }
@@ -42,5 +41,6 @@ namespace ScoreClass.Web.Data
 		public DbSet<Turma> Turma { get; set; }
 		public DbSet<Frequencia> Frequencia { get; set; }
 		public DbSet<Professor> Professor { get; set; }
+		public DbSet<Voucher> Voucher { get; set; }
 	}
 }
