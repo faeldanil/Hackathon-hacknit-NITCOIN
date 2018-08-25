@@ -34,5 +34,6 @@ namespace ScoreClass.Web.Data
         public DbSet<Turma> Turma { get; set; }
         public DbSet<Frequencia> Frequencia { get; set; }
         public DbSet<Professor> Professor { get; set; }
+        public DbSet<ScoreClass.Web.Models.Cadastros.Escola> Escola_1 { get; set; }
     }
 }
