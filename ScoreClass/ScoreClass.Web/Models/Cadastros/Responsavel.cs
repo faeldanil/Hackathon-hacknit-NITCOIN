@@ -14,6 +14,7 @@ namespace ScoreClass.Web.Models.Cadastros
         public string Telefone { get;  set; }
 		public virtual List<Aluno> Alunos { get; set; } = new List<Aluno>();
 		public virtual List<NitCoin> NitCoins { get; set; } = new List<NitCoin>();
+		public virtual List<Voucher> Vouchers { get; set; } = new List<Voucher>();
 
 
 		public void RegistrarAtividade(TipoAtividade tipoAtividade)
@@ -25,5 +26,8 @@ namespace ScoreClass.Web.Models.Cadastros
 
 			NitCoins.Add(nitCoin);
 		}
+
+
+		
 	}
 }

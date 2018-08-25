@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScoreClass.Web.Models.Cadastros;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace ScoreClass.Web.Models.Incentivos
@@ -7,6 +8,7 @@ namespace ScoreClass.Web.Models.Incentivos
 	{
 		[Key]
 		public Int64 Id { get; set; }
+		public virtual Responsavel Responsavel { get; set; }
 		public virtual NitCoin NitCoinOrigem { get; set; }
 		public virtual Fidelidade Fidelidade { get; set; }
 		public Int32 Quantidade { get; set; }
