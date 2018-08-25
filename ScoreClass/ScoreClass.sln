@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScoreClass.Web", "ScoreClass.Web\ScoreClass.Web.csproj", "{28F7586F-1D7A-420A-B406-1F2AB7EE7895}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScoreClass.Testes", "ScoreClass.Testes\ScoreClass.Testes.csproj", "{D00B7D52-16FF-4164-B2B9-F4F984C6488D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScoreClass.Testes", "ScoreClass.Testes\ScoreClass.Testes.csproj", "{D00B7D52-16FF-4164-B2B9-F4F984C6488D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
