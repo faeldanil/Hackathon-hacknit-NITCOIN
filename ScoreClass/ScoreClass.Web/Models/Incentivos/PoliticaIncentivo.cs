@@ -1,5 +1,6 @@
 ﻿using ScoreClass.Web.Models.Cadastros;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace ScoreClass.Web.Models.Incentivos
@@ -7,11 +8,12 @@ namespace ScoreClass.Web.Models.Incentivos
 
 	public enum TipoAtividade
 	{
-		Acesso, AcompanhamentoOnLine, AcompanhamentoPresencial
+		Acesso, AcompanhamentoOnLine, AcompanhamentoPresencial, RendimentoAluno
 	}
 
 	public class PoliticaIncentivo
 	{
+		[Key]
 		public Int64 Id { get; set; }
 		public Int32 QuantidadePorAcesso { get; set; }
 		public Int32 QuantidadePorAcompanhamentoOnLine { get; set; }
