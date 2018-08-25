@@ -11,6 +11,7 @@ namespace ScoreClass.Web.Models.Cadastros
         [Key]
         public long Id { get; set; }
         public string Nome { get;  set; }
-        public Aluno Aluno { get;  set; }
+        public virtual Aluno Aluno { get;  set; }
+        public virtual List<Nota> Notas { get; set; }
     }
 }

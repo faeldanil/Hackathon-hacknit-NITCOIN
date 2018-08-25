@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<ScoreClass.Web.Models.Cadastros.Matricula>
+@{
+    Layout = "_Layout";
+}
 
 
 <div>
@@ -15,15 +18,15 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model.Select(x => x.Materias))
                 {
                     <tr>
                         <th scope="row"></th>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
+                        <td>item.Nome</td>
+                        <td>item.Notas.Where(x => x.Bimestre == "1º")</td>
+                        <td>item.Notas.Where(x => x.Bimestre == "2º")</td>
+                        <td>item.Notas.Where(x => x.Bimestre == "3º")</td>
+                        <td>item.Notas.Where(x => x.Bimestre == "4º")</td>
                     </tr>
                 }
             </tbody>

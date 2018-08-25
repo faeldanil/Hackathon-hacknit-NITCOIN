@@ -28,6 +28,7 @@
   <ItemGroup>
     <Folder Include="Models\Campanhas\" />
     <Folder Include="Models\Incentivos\" />
+    <Folder Include="wwwroot\lay\" />
   </ItemGroup>
 
 </Project>
