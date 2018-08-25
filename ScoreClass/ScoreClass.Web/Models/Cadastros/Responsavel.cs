@@ -38,7 +38,7 @@ namespace ScoreClass.Web.Models.Cadastros
 		{
 			var voucher = new Voucher { Fidelidade = fidelidade, Responsavel = this };
 
-			return Voucher;
+			return voucher;
 		}
 
 		
