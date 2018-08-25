@@ -30,5 +30,9 @@ namespace ScoreClass.Web.Data
         public DbSet<Pontualidade> Pontualidade { get; set; }
         public DbSet<Nota> Nota { get; set; }
         public DbSet<NitCoin> NitCoin { get; set; }
+        public DbSet<Ocorrencia> Ocorrencia { get; set; }
+        public DbSet<Turma> Turma { get; set; }
+        public DbSet<Frequencia> Frequencia { get; set; }
+        public DbSet<Professor> Professor { get; set; }
     }
 }
