@@ -13,7 +13,7 @@ namespace ScoreClass.Web.Models.Cadastros
         public string Nome { get;  set; }
         public Email Email { get;  set; }
         public string Telefone { get;  set; }
-
+        public string Cpf { get; set; }
 		public virtual List<NitCoin> NitCoins { get; set; } = new List<NitCoin>();
 		public virtual List<Voucher> Vouchers { get; set; } = new List<Voucher>();
 
