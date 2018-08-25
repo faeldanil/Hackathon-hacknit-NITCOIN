@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace ScoreClass.Web.Models.Cadastros
 {
@@ -12,9 +13,14 @@ namespace ScoreClass.Web.Models.Cadastros
         public string Nome { get;  set; }
         public Email Email { get;  set; }
         public string Telefone { get;  set; }
-		public virtual List<Aluno> Alunos { get; set; } = new List<Aluno>();
+
 		public virtual List<NitCoin> NitCoins { get; set; } = new List<NitCoin>();
 		public virtual List<Voucher> Vouchers { get; set; } = new List<Voucher>();
+
+		public int ObterSaldo()
+		{
+			return NitCoins.Sum(nc => nc.Quantidade);
+		}
 
 
 		public void RegistrarAtividade(TipoAtividade tipoAtividade)
@@ -27,6 +33,13 @@ namespace ScoreClass.Web.Models.Cadastros
 			NitCoins.Add(nitCoin);
 		}
 
+
+		public Voucher GerarVoucher(Fidelidade fidelidade)
+		{
+			var voucher = new Voucher { Fidelidade = fidelidade, Responsavel = this };
+
+			return Voucher;
+		}
 
 		
 	}
