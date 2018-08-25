@@ -8,6 +8,8 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20180825165326_ClassesCadastro.cs" />
     <Compile Remove="Data\Migrations\20180825165326_ClassesCadastro.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180825181413_ClassesCadastro.cs" />
+    <Compile Remove="Data\Migrations\20180825181413_ClassesCadastro.Designer.cs" />
   </ItemGroup>
 
 
