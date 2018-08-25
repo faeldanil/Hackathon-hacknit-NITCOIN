@@ -10,10 +10,10 @@ using ScoreClass.Web.Models.Cadastros;
 using ScoreClass.Web.Models.Incentivos;
 using System;
 
-namespace ScoreClass.Web.Data.Migrations
+namespace ScoreClass.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180825222341_VersaoInicialDoBanco")]
+    [Migration("20180825230636_VersaoInicialDoBanco")]
     partial class VersaoInicialDoBanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -187,7 +187,7 @@ namespace ScoreClass.Web.Data.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("EmailNumero");
+                    b.Property<string>("EmailDescricao");
 
                     b.Property<string>("Nome");
 
@@ -197,7 +197,7 @@ namespace ScoreClass.Web.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmailNumero");
+                    b.HasIndex("EmailDescricao");
 
                     b.HasIndex("ReponsavelId");
 
@@ -206,10 +206,10 @@ namespace ScoreClass.Web.Data.Migrations
 
             modelBuilder.Entity("ScoreClass.Web.Models.Cadastros.Email", b =>
                 {
-                    b.Property<string>("Numero")
+                    b.Property<string>("Descricao")
                         .ValueGeneratedOnAdd();
 
-                    b.HasKey("Numero");
+                    b.HasKey("Descricao");
 
                     b.ToTable("Email");
                 });
@@ -277,9 +277,13 @@ namespace ScoreClass.Web.Data.Migrations
 
                     b.Property<string>("Codigo");
 
+                    b.Property<long?>("TurmaId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AlunoId");
+
+                    b.HasIndex("TurmaId");
 
                     b.ToTable("Matricula");
                 });
@@ -288,6 +292,8 @@ namespace ScoreClass.Web.Data.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Bimestre");
 
                     b.Property<string>("Descricao");
 
@@ -353,7 +359,7 @@ namespace ScoreClass.Web.Data.Migrations
 
                     b.Property<string>("Cpf");
 
-                    b.Property<string>("EmailNumero");
+                    b.Property<string>("EmailDescricao");
 
                     b.Property<string>("Nome");
 
@@ -361,7 +367,7 @@ namespace ScoreClass.Web.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmailNumero");
+                    b.HasIndex("EmailDescricao");
 
                     b.ToTable("Responsavel");
                 });
@@ -527,7 +533,7 @@ namespace ScoreClass.Web.Data.Migrations
                 {
                     b.HasOne("ScoreClass.Web.Models.Cadastros.Email", "Email")
                         .WithMany()
-                        .HasForeignKey("EmailNumero");
+                        .HasForeignKey("EmailDescricao");
 
                     b.HasOne("ScoreClass.Web.Models.Cadastros.Responsavel", "Reponsavel")
                         .WithMany()
@@ -559,8 +565,12 @@ namespace ScoreClass.Web.Data.Migrations
             modelBuilder.Entity("ScoreClass.Web.Models.Cadastros.Matricula", b =>
                 {
                     b.HasOne("ScoreClass.Web.Models.Cadastros.Aluno", "Aluno")
-                        .WithMany()
+                        .WithMany("Matriculas")
                         .HasForeignKey("AlunoId");
+
+                    b.HasOne("ScoreClass.Web.Models.Cadastros.Turma", "Turma")
+                        .WithMany("Matriculas")
+                        .HasForeignKey("TurmaId");
                 });
 
             modelBuilder.Entity("ScoreClass.Web.Models.Cadastros.Nota", b =>
@@ -581,7 +591,7 @@ namespace ScoreClass.Web.Data.Migrations
                 {
                     b.HasOne("ScoreClass.Web.Models.Cadastros.Email", "Email")
                         .WithMany()
-                        .HasForeignKey("EmailNumero");
+                        .HasForeignKey("EmailDescricao");
                 });
 
             modelBuilder.Entity("ScoreClass.Web.Models.Cadastros.Turma", b =>
