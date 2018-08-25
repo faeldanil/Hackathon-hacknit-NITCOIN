@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace ScoreClass.Web.Models.Cadastros
 {
-    public class Nota
+    public class Ocorrencia
     {
         [Key]
         public long Id { get; set; }
+        public DateTime DataHora { get; set; }
         public string Descricao { get; set; }
-        public Materia Materia { get; set; }
+        public StatusAvaliacao TipoComportamento { get; set; }
     }
 }
