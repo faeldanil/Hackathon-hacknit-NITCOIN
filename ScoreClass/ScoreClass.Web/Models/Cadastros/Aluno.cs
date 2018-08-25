@@ -12,7 +12,7 @@ namespace ScoreClass.Web.Models.Cadastros
 		[Key]
 		public long Id { get; set; }
 		public string Nome { get; set; }
-		public Email Email { get; set; }
+		public virtual Email Email { get; set; }
 		public string Telefone { get; set; }
 		public virtual Responsavel Reponsavel { get; set; }
 
