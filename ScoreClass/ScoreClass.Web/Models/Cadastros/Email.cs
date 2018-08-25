@@ -5,6 +5,6 @@ namespace ScoreClass.Web.Models.Cadastros
     public class Email
     {
         [Key]
-        public string Numero { get; set; }
+        public string Descricao { get; set; }
     }
 }

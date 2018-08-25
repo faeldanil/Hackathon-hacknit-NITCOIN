@@ -13,7 +13,7 @@ namespace ScoreClass.Web.Models.Cadastros
         public virtual IEnumerable<Pontualidade> Pontualidades { get; set; }
         public virtual IEnumerable<Materia> Materias { get; set; }
 
-        string[] _alfabeto = { "A", "B", "C", "D", "D", "F", "G", "H", "I", "J" };
+        string[] _alfabeto = { "A", "B", "C", "D", "D", "F", "G", "H" };
 
         private Random _valorAleatorio = new Random();
 
