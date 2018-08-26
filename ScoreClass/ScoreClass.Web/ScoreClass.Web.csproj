@@ -34,7 +34,6 @@
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
     <Folder Include="Models\Incentivos\" />
-    <Folder Include="wwwroot\lay\" />
   </ItemGroup>
 
 </Project>
