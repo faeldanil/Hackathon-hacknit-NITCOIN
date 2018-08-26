@@ -19,14 +19,16 @@
 	<tbody>
 		@foreach (var item in Model)
 		{
-		<tr>
-			<td>@Html.DisplayFor(modelItem => item.Id)</td>
-			<td>@Html.DisplayFor(modelItem => item.Ativo)</td>
-			<td>@Html.DisplayFor(modelItem => item.Codigo)</td>
-			<td>@Html.DisplayFor(modelItem => item.Resgatado)</td>
-			<td>@Html.DisplayFor(modelItem => item.Valor)</td>
-			<td>@Html.DisplayFor(modelItem => item.TipoValor)</td>
-		</tr>
+			<tr>
+				<td>@Html.DisplayFor(modelItem => item.Id)</td>
+				<td>@Html.DisplayFor(modelItem => item.Ativo)</td>
+				<td>
+					<a asp-action="Voucher" asp-controller="Parceria" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Codigo)</a>
+				</td>
+				<td>@Html.DisplayFor(modelItem => item.Resgatado)</td>
+				<td>@Html.DisplayFor(modelItem => item.Valor)</td>
+				<td>@Html.DisplayFor(modelItem => item.TipoValor)</td>
+			</tr>
 		}
 	</tbody>
 </table>

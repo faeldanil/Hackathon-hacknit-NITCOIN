@@ -45,5 +45,11 @@ namespace ScoreClass.Web.Controllers
 				return this.RedirectToAction("Resgatar", "Parceria", new { parceriaId, fidelidadeId });
 			}
 		}
+
+		public IActionResult Voucher(int voucherId)
+		{
+			var voucher = ResponsavelLogado.Vouchers.FirstOrDefault(v => v.Id == voucherId);
+			return View(voucher);
+		}
 	}
 }
