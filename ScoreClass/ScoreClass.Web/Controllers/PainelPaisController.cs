@@ -16,7 +16,19 @@ namespace ScoreClass.Web.Controllers
 
         public ActionResult Index()
         {
-            var matricula = _context.Matricula.First(x => x.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
+            var matricula = _context.Frequencia.FirstOrDefault(x => x.Materia.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
+            return View(matricula);
+        }
+
+        public ActionResult Frequencia()
+        {
+            var matricula = _context.Matricula.FirstOrDefault(x => x.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
+            return View(matricula);
+        }
+
+        public ActionResult Ocorrencia()
+        {
+            var matricula = _context.Matricula.FirstOrDefault(x => x.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
             return View(matricula);
         }
 
