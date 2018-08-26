@@ -14,20 +14,20 @@ namespace ScoreClass.Web.Controllers
 
 		public ActionResult Index()
 		{
-			var matricula = _context.Matricula.FirstOrDefault(x => x.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
+			var matricula = repositorio.Matricula.FirstOrDefault(x => x.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
 			ResponsavelLogado.RegistrarAtividade(TipoAtividade.AcompanhamentoOnLine);
 			return View(matricula);
 		}
 
 		public ActionResult Frequencia()
 		{
-			var matricula = _context.Matricula.FirstOrDefault(x => x.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
+			var matricula = repositorio.Matricula.FirstOrDefault(x => x.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
 			return View(matricula);
 		}
 
 		public ActionResult Ocorrencia()
 		{
-			var matricula = _context.Matricula.FirstOrDefault(x => x.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
+			var matricula = repositorio.Matricula.FirstOrDefault(x => x.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
 			return View(matricula);
 		}
 

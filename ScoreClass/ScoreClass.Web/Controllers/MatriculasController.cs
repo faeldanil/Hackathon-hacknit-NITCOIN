@@ -15,7 +15,7 @@ namespace ScoreClass.Web.Controllers
 		// GET: Matriculas
 		public IActionResult Index()
 		{
-			return View(_context.Matricula.ToList());
+			return View(repositorio.Matricula.ToList());
 		}
 
 		// GET: Matriculas/Details/5
@@ -26,7 +26,7 @@ namespace ScoreClass.Web.Controllers
 				return NotFound();
 			}
 
-			var matricula = _context.Matricula
+			var matricula = repositorio.Matricula
 				.SingleOrDefault(m => m.Id == id);
 			if (matricula == null)
 			{
@@ -52,8 +52,8 @@ namespace ScoreClass.Web.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				_context.Add(matricula);
-				_context.SaveChanges();
+				repositorio.Add(matricula);
+				repositorio.SaveChanges();
 				return RedirectToAction(nameof(Index));
 			}
 			return View(matricula);
@@ -67,7 +67,7 @@ namespace ScoreClass.Web.Controllers
 				return NotFound();
 			}
 
-			var matricula = _context.Matricula.SingleOrDefault(m => m.Id == id);
+			var matricula = repositorio.Matricula.SingleOrDefault(m => m.Id == id);
 			if (matricula == null)
 			{
 				return NotFound();
@@ -91,8 +91,8 @@ namespace ScoreClass.Web.Controllers
 			{
 				try
 				{
-					_context.Update(matricula);
-					_context.SaveChanges();
+					repositorio.Update(matricula);
+					repositorio.SaveChanges();
 				}
 				catch (DbUpdateConcurrencyException)
 				{
@@ -118,7 +118,7 @@ namespace ScoreClass.Web.Controllers
 				return NotFound();
 			}
 
-			var matricula = _context.Matricula
+			var matricula = repositorio.Matricula
 				.SingleOrDefault(m => m.Id == id);
 			if (matricula == null)
 			{
@@ -133,15 +133,15 @@ namespace ScoreClass.Web.Controllers
 		[ValidateAntiForgeryToken]
 		public IActionResult DeleteConfirmed(long id)
 		{
-			var matricula = _context.Matricula.SingleOrDefault(m => m.Id == id);
-			_context.Remove(matricula);
-			_context.SaveChanges();
+			var matricula = repositorio.Matricula.SingleOrDefault(m => m.Id == id);
+			repositorio.Remove(matricula);
+			repositorio.SaveChanges();
 			return RedirectToAction(nameof(Index));
 		}
 
 		private bool MatriculaExists(long id)
 		{
-			return _context.Matricula.Any(e => e.Id == id);
+			return repositorio.Matricula.Any(e => e.Id == id);
 		}
 	}
 }

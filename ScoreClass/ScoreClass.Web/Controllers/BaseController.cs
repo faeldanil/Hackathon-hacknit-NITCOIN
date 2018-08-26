@@ -8,7 +8,7 @@ namespace ScoreClass.Web.Controllers
 {
 	public class BaseController : Controller
 	{
-		protected readonly Repositorio _context = Repositorio.Ativo;
+		protected readonly Repositorio repositorio = Repositorio.Ativo;
 
 		public override void OnActionExecuted(ActionExecutedContext context)
 		{
@@ -24,7 +24,7 @@ namespace ScoreClass.Web.Controllers
 
 		protected Responsavel ResponsavelLogado
 		{
-			get => _context?.Responsavel?.FirstOrDefault(r => r.Email.Descricao == User?.Identity?.Name);
+			get => repositorio?.Responsavel?.FirstOrDefault(r => r.Email.Descricao == User?.Identity?.Name);
 		}
 	}
 }

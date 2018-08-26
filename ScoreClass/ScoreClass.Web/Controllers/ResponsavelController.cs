@@ -15,7 +15,7 @@ namespace ScoreClass.Web.Controllers
 		// GET: Responsavel
 		public IActionResult Index()
 		{
-			return View(_context.Responsavel.ToList());
+			return View(repositorio.Responsavel.ToList());
 		}
 
 		// GET: Responsavel/Details/5
@@ -26,7 +26,7 @@ namespace ScoreClass.Web.Controllers
 				return NotFound();
 			}
 
-			var responsavel = _context.Responsavel
+			var responsavel = repositorio.Responsavel
 				.SingleOrDefault(m => m.Id == id);
 			if (responsavel == null)
 			{
@@ -51,8 +51,8 @@ namespace ScoreClass.Web.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				_context.Add(responsavel);
-				_context.SaveChanges();
+				repositorio.Add(responsavel);
+				repositorio.SaveChanges();
 				return RedirectToAction(nameof(Index));
 			}
 			return View(responsavel);
@@ -66,7 +66,7 @@ namespace ScoreClass.Web.Controllers
 				return NotFound();
 			}
 
-			var responsavel = _context.Responsavel.SingleOrDefault(m => m.Id == id);
+			var responsavel = repositorio.Responsavel.SingleOrDefault(m => m.Id == id);
 			if (responsavel == null)
 			{
 				return NotFound();
@@ -90,8 +90,8 @@ namespace ScoreClass.Web.Controllers
 			{
 				try
 				{
-					_context.Update(responsavel);
-					_context.SaveChanges();
+					repositorio.Update(responsavel);
+					repositorio.SaveChanges();
 				}
 				catch (DbUpdateConcurrencyException)
 				{
@@ -117,7 +117,7 @@ namespace ScoreClass.Web.Controllers
 				return NotFound();
 			}
 
-			var responsavel = _context.Responsavel
+			var responsavel = repositorio.Responsavel
 				.SingleOrDefault(m => m.Id == id);
 			if (responsavel == null)
 			{
@@ -132,15 +132,15 @@ namespace ScoreClass.Web.Controllers
 		[ValidateAntiForgeryToken]
 		public IActionResult DeleteConfirmed(long id)
 		{
-			var responsavel = _context.Responsavel.SingleOrDefault(m => m.Id == id);
-			_context.Remove(responsavel);
-			_context.SaveChanges();
+			var responsavel = repositorio.Responsavel.SingleOrDefault(m => m.Id == id);
+			repositorio.Remove(responsavel);
+			repositorio.SaveChanges();
 			return RedirectToAction(nameof(Index));
 		}
 
 		private bool ResponsavelExists(long id)
 		{
-			return _context.Responsavel.Any(e => e.Id == id);
+			return repositorio.Responsavel.Any(e => e.Id == id);
 		}
 	}
 }

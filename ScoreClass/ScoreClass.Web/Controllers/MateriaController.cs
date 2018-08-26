@@ -15,7 +15,7 @@ namespace ScoreClass.Web.Controllers
 		// GET: Materia
 		public IActionResult Index()
 		{
-			return View(_context.Materia.ToList());
+			return View(repositorio.Materia.ToList());
 		}
 
 		// GET: Materia/Details/5
@@ -26,7 +26,7 @@ namespace ScoreClass.Web.Controllers
 				return NotFound();
 			}
 
-			var materia = _context.Materia
+			var materia = repositorio.Materia
 				.SingleOrDefault(m => m.Id == id);
 			if (materia == null)
 			{
@@ -51,8 +51,8 @@ namespace ScoreClass.Web.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				_context.Add(materia);
-				_context.SaveChanges();
+				repositorio.Add(materia);
+				repositorio.SaveChanges();
 				return RedirectToAction(nameof(Index));
 			}
 			return View(materia);
@@ -66,7 +66,7 @@ namespace ScoreClass.Web.Controllers
 				return NotFound();
 			}
 
-			var materia = _context.Materia.SingleOrDefault(m => m.Id == id);
+			var materia = repositorio.Materia.SingleOrDefault(m => m.Id == id);
 			if (materia == null)
 			{
 				return NotFound();
@@ -90,8 +90,8 @@ namespace ScoreClass.Web.Controllers
 			{
 				try
 				{
-					_context.Update(materia);
-					_context.SaveChanges();
+					repositorio.Update(materia);
+					repositorio.SaveChanges();
 				}
 				catch (DbUpdateConcurrencyException)
 				{
@@ -117,7 +117,7 @@ namespace ScoreClass.Web.Controllers
 				return NotFound();
 			}
 
-			var materia = _context.Materia
+			var materia = repositorio.Materia
 				.SingleOrDefault(m => m.Id == id);
 			if (materia == null)
 			{
@@ -132,15 +132,15 @@ namespace ScoreClass.Web.Controllers
 		[ValidateAntiForgeryToken]
 		public IActionResult DeleteConfirmed(long id)
 		{
-			var materia = _context.Materia.SingleOrDefault(m => m.Id == id);
-			_context.Remove(materia);
-			_context.SaveChanges();
+			var materia = repositorio.Materia.SingleOrDefault(m => m.Id == id);
+			repositorio.Remove(materia);
+			repositorio.SaveChanges();
 			return RedirectToAction(nameof(Index));
 		}
 
 		private bool MateriaExists(long id)
 		{
-			return _context.Materia.Any(e => e.Id == id);
+			return repositorio.Materia.Any(e => e.Id == id);
 		}
 	}
 }

@@ -15,7 +15,7 @@ namespace ScoreClass.Web.Controllers
         // GET: Escola
         public  IActionResult Index()
         {
-            return View( _context.Escola.ToList());
+            return View( repositorio.Escola.ToList());
         }
 
         // GET: Escola/Details/5
@@ -26,7 +26,7 @@ namespace ScoreClass.Web.Controllers
                 return NotFound();
             }
 
-            var escola =  _context.Escola
+            var escola =  repositorio.Escola
                 .SingleOrDefault(m => m.Id == id);
             if (escola == null)
             {
@@ -51,8 +51,8 @@ namespace ScoreClass.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(escola);
-                 _context.SaveChanges();
+                repositorio.Add(escola);
+                 repositorio.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             return View(escola);
@@ -66,7 +66,7 @@ namespace ScoreClass.Web.Controllers
                 return NotFound();
             }
 
-            var escola =  _context.Escola.SingleOrDefault(m => m.Id == id);
+            var escola =  repositorio.Escola.SingleOrDefault(m => m.Id == id);
             if (escola == null)
             {
                 return NotFound();
@@ -90,8 +90,8 @@ namespace ScoreClass.Web.Controllers
             {
                 try
                 {
-                    _context.Update(escola);
-                     _context.SaveChanges();
+                    repositorio.Update(escola);
+                     repositorio.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -117,7 +117,7 @@ namespace ScoreClass.Web.Controllers
                 return NotFound();
             }
 
-            var escola =  _context.Escola
+            var escola =  repositorio.Escola
                 .SingleOrDefault(m => m.Id == id);
             if (escola == null)
             {
@@ -132,15 +132,15 @@ namespace ScoreClass.Web.Controllers
         [ValidateAntiForgeryToken]
         public  IActionResult DeleteConfirmed(long id)
         {
-            var escola =  _context.Escola.SingleOrDefault(m => m.Id == id);
-            _context.Remove(escola);
-             _context.SaveChanges();
+            var escola =  repositorio.Escola.SingleOrDefault(m => m.Id == id);
+            repositorio.Remove(escola);
+             repositorio.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
 
         private bool EscolaExists(long id)
         {
-            return _context.Escola.Any(e => e.Id == id);
+            return repositorio.Escola.Any(e => e.Id == id);
         }
     }
 }

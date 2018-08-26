@@ -13,7 +13,7 @@ namespace ScoreClass.Web.Controllers
 		// GET: Aluno
 		public IActionResult Index()
 		{
-			return View(_context.Aluno.ToList());
+			return View(repositorio.Aluno.ToList());
 		}
 
 		// GET: Aluno/Details/5
@@ -24,7 +24,7 @@ namespace ScoreClass.Web.Controllers
 				return NotFound();
 			}
 
-			var aluno = _context.Aluno
+			var aluno = repositorio.Aluno
 				.SingleOrDefault(m => m.Id == id);
 			if (aluno == null)
 			{
@@ -49,8 +49,8 @@ namespace ScoreClass.Web.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				_context.Add(aluno);
-				_context.SaveChanges();
+				repositorio.Add(aluno);
+				repositorio.SaveChanges();
 				return RedirectToAction(nameof(Index));
 			}
 			return View(aluno);
@@ -64,7 +64,7 @@ namespace ScoreClass.Web.Controllers
 				return NotFound();
 			}
 
-			var aluno = _context.Aluno.SingleOrDefault(m => m.Id == id);
+			var aluno = repositorio.Aluno.SingleOrDefault(m => m.Id == id);
 			if (aluno == null)
 			{
 				return NotFound();
@@ -88,8 +88,8 @@ namespace ScoreClass.Web.Controllers
 			{
 				try
 				{
-					_context.Update(aluno);
-					_context.SaveChanges();
+					repositorio.Update(aluno);
+					repositorio.SaveChanges();
 				}
 				catch (DbUpdateConcurrencyException)
 				{
@@ -115,7 +115,7 @@ namespace ScoreClass.Web.Controllers
 				return NotFound();
 			}
 
-			var aluno = _context.Aluno
+			var aluno = repositorio.Aluno
 				.SingleOrDefault(m => m.Id == id);
 			if (aluno == null)
 			{
@@ -130,15 +130,15 @@ namespace ScoreClass.Web.Controllers
 		[ValidateAntiForgeryToken]
 		public IActionResult DeleteConfirmed(long id)
 		{
-			var aluno = _context.Aluno.SingleOrDefault(m => m.Id == id);
-			_context.Remove(aluno);
-			_context.SaveChanges();
+			var aluno = repositorio.Aluno.SingleOrDefault(m => m.Id == id);
+			repositorio.Remove(aluno);
+			repositorio.SaveChanges();
 			return RedirectToAction(nameof(Index));
 		}
 
 		private bool AlunoExists(long id)
 		{
-			return _context.Aluno.Any(e => e.Id == id);
+			return repositorio.Aluno.Any(e => e.Id == id);
 		}
 	}
 }

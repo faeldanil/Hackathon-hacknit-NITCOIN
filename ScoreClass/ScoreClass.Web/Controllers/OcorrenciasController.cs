@@ -16,7 +16,7 @@ namespace ScoreClass.Web.Controllers
 		// GET: Ocorrencias
 		public IActionResult Index()
 		{
-			return View(_context.Ocorrencia.ToList());
+			return View(repositorio.Ocorrencia.ToList());
 		}
 
 		// GET: Ocorrencias/Details/5
@@ -27,7 +27,7 @@ namespace ScoreClass.Web.Controllers
 				return NotFound();
 			}
 
-			var ocorrencia = _context.Ocorrencia
+			var ocorrencia = repositorio.Ocorrencia
 				.SingleOrDefault(m => m.Id == id);
 			if (ocorrencia == null)
 			{
@@ -52,8 +52,8 @@ namespace ScoreClass.Web.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				_context.Add(ocorrencia);
-				_context.SaveChanges();
+				repositorio.Add(ocorrencia);
+				repositorio.SaveChanges();
 				return RedirectToAction(nameof(Index));
 			}
 			return View(ocorrencia);
@@ -67,7 +67,7 @@ namespace ScoreClass.Web.Controllers
 				return NotFound();
 			}
 
-			var ocorrencia = _context.Ocorrencia.SingleOrDefault(m => m.Id == id);
+			var ocorrencia = repositorio.Ocorrencia.SingleOrDefault(m => m.Id == id);
 			if (ocorrencia == null)
 			{
 				return NotFound();
@@ -91,8 +91,8 @@ namespace ScoreClass.Web.Controllers
 			{
 				try
 				{
-					_context.Update(ocorrencia);
-					_context.SaveChanges();
+					repositorio.Update(ocorrencia);
+					repositorio.SaveChanges();
 				}
 				catch (DbUpdateConcurrencyException)
 				{
@@ -118,7 +118,7 @@ namespace ScoreClass.Web.Controllers
 				return NotFound();
 			}
 
-			var ocorrencia = _context.Ocorrencia
+			var ocorrencia = repositorio.Ocorrencia
 				.SingleOrDefault(m => m.Id == id);
 			if (ocorrencia == null)
 			{
@@ -133,15 +133,15 @@ namespace ScoreClass.Web.Controllers
 		[ValidateAntiForgeryToken]
 		public IActionResult DeleteConfirmed(long id)
 		{
-			var ocorrencia = _context.Ocorrencia.SingleOrDefault(m => m.Id == id);
-			_context.Remove(ocorrencia);
-			_context.SaveChanges();
+			var ocorrencia = repositorio.Ocorrencia.SingleOrDefault(m => m.Id == id);
+			repositorio.Remove(ocorrencia);
+			repositorio.SaveChanges();
 			return RedirectToAction(nameof(Index));
 		}
 
 		private bool OcorrenciaExists(long id)
 		{
-			return _context.Ocorrencia.Any(e => e.Id == id);
+			return repositorio.Ocorrencia.Any(e => e.Id == id);
 		}
 	}
 }
