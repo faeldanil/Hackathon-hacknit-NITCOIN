@@ -28,7 +28,7 @@ namespace ScoreClass.Web.Data
 		public IEnumerable<PoliticaIncentivo> PoliticaIncentivo { get => Obter<PoliticaIncentivo>(); }
 		public IEnumerable<Voucher> Voucher { get => Obter<Voucher>(); }
 
-		private static readonly Random random = new Random();
+		private readonly Random random = new Random();
 
 		public string NotaAleatoria { get => (Convert.ToDecimal(random.Next(0, 100)) / 10M).ToString(); }
 
