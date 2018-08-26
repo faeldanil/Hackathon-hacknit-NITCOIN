@@ -1,6 +1,7 @@
 ﻿using ScoreClass.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace ScoreClass.Web.Data
 {
@@ -52,6 +53,7 @@ namespace ScoreClass.Web.Data
 
 	public class Repositorio<TEntidade> where TEntidade : Entidade
 	{
+		private int _id;
 		private readonly List<TEntidade> _cache = new List<TEntidade>();
 
 		public IEnumerable<TEntidade> Obter()
@@ -62,6 +64,7 @@ namespace ScoreClass.Web.Data
 		internal void Incluir(TEntidade entidade)
 		{
 			_cache.Add(entidade);
+			entidade.Id = Interlocked.Increment(ref _id);
 		}
 
 		internal void Alterar(TEntidade entidade)
@@ -79,6 +82,5 @@ namespace ScoreClass.Web.Data
 		{
 			_cache.Clear();
 		}
-
 	}
 }
