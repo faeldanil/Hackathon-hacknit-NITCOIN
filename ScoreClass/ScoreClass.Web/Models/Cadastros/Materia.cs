@@ -9,12 +9,13 @@ namespace ScoreClass.Web.Models.Cadastros
 		public virtual Aluno Aluno { get; set; }
 		public virtual List<Nota> Notas { get; set; } = new List<Nota>();
 		public Disciplina Disciplina { get; set; }
-        public virtual List<Frequencia> Frequencias { get; set; } = new List<Frequencia>();
+		public virtual List<Frequencia> Frequencias { get; set; } = new List<Frequencia>();
 
-        public string ObterFrequencias(string bimestre)
-        {
-            var total =  Frequencias.Where(x => x.Bimestre == bimestre).Count().ToString();
-            return Frequencias.Where(x => x.Bimestre == bimestre).Count(x => x.Compareceu).ToString() + " / " + total;
-        }
-    }
+		public string ObterFrequencias(string bimestre)
+		{
+			var total = Frequencias.Where(x => x.Bimestre == bimestre).Count().ToString();
+			var parcial = Frequencias.Where(x => x.Bimestre == bimestre).Count(x => x.Compareceu).ToString();
+			return parcial + " / " + total;
+		}
+	}
 }

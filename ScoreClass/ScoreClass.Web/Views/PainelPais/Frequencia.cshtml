@@ -2,36 +2,35 @@
 @using ScoreClass.Web.Data
 
 @{
-    Layout = "_Layout";
+	Layout = "_Layout";
 }
 
 <div>
-    <h4>Aluno</h4>
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Matéria/Bimestre</th>
-                    <th scope="col">1º</th>
-                    <th scope="col">2º</th>
-                    <th scope="col">3º</th>
-                    <th scope="col">4º</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var disciplina in Repositorio.Ativo.Disciplina)
-                {
-                    var materia = Model.Materias.FirstOrDefault(m => m.Disciplina == disciplina);
-                <tr>
-                    <td>@Html.DisplayFor(m => disciplina.Nome)</td>
-                    <td>@Html.DisplayFor(m => materia.ObterFrequencias("1o"))</td>
-                    <td>@Html.DisplayFor(m => materia.ObterFrequencias("2o"))</td>
-                    <td>@Html.DisplayFor(m => materia.ObterFrequencias("3o"))</td>
-                    <td>@Html.DisplayFor(m => materia.ObterFrequencias("4o"))</td>
-
-                </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+	<h4>Aluno</h4>
+	<div class="table-responsive">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Matéria/Bimestre</th>
+					<th scope="col">1º</th>
+					<th scope="col">2º</th>
+					<th scope="col">3º</th>
+					<th scope="col">4º</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var disciplina in Repositorio.Ativo.Disciplina)
+				{
+					var matricula = Model.Materias.FirstOrDefault(m => m.Disciplina == disciplina);
+					<tr>
+						<td>@Html.DisplayFor(m => disciplina.Nome)</td>
+						<td>@matricula.ObterFrequencias("1o")</td>
+						<td>@matricula.ObterFrequencias("2o")</td>
+						<td>@matricula.ObterFrequencias("3o")</td>
+						<td>@matricula.ObterFrequencias("4o")</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
 </div>
