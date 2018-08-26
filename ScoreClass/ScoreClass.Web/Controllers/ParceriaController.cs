@@ -27,7 +27,7 @@ namespace ScoreClass.Web.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult Resgatar(FormCollection formCollection)
+		public IActionResult Resgatar(IFormCollection formCollection)
 		{
 			try
 			{
