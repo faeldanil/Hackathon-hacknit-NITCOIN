@@ -110,12 +110,23 @@ namespace ScoreClass.Web.Data
 					materia_A1.Notas.Add(new Nota { Bimestre = "3o", Descricao = NotaAleatoria, Materia = materia_A1 });
 					materia_A1.Notas.Add(new Nota { Bimestre = "4o", Descricao = NotaAleatoria, Materia = materia_A1 });
 
+					materia_A1.Frequencias.Add(new Frequencia { Bimestre = "1o", Compareceu = true, Materia = materia_A1, DataHora = DateTime.Now });
+					materia_A1.Frequencias.Add(new Frequencia { Bimestre = "2o", Compareceu = true, Materia = materia_A1, DataHora = DateTime.Now });
+					materia_A1.Frequencias.Add(new Frequencia { Bimestre = "3o", Compareceu = true, Materia = materia_A1, DataHora = DateTime.Now });
+					materia_A1.Frequencias.Add(new Frequencia { Bimestre = "4o", Compareceu = true, Materia = materia_A1, DataHora = DateTime.Now });
+
+
 					var materia_A2 = new Materia { Aluno = aluno2, Nome = disciplina.Nome, Disciplina = disciplina };
 					matricula2.Materias.Add(materia_A2);
 					materia_A2.Notas.Add(new Nota { Bimestre = "1o", Descricao = NotaAleatoria, Materia = materia_A2 });
 					materia_A2.Notas.Add(new Nota { Bimestre = "2o", Descricao = NotaAleatoria, Materia = materia_A2 });
 					materia_A2.Notas.Add(new Nota { Bimestre = "3o", Descricao = NotaAleatoria, Materia = materia_A2 });
 					materia_A2.Notas.Add(new Nota { Bimestre = "4o", Descricao = NotaAleatoria, Materia = materia_A2 });
+
+					materia_A2.Frequencias.Add(new Frequencia { Bimestre = "1o", Compareceu = true, Materia = materia_A2, DataHora = DateTime.Now });
+					materia_A2.Frequencias.Add(new Frequencia { Bimestre = "2o", Compareceu = true, Materia = materia_A2, DataHora = DateTime.Now });
+					materia_A2.Frequencias.Add(new Frequencia { Bimestre = "3o", Compareceu = true, Materia = materia_A2, DataHora = DateTime.Now });
+					materia_A2.Frequencias.Add(new Frequencia { Bimestre = "4o", Compareceu = true, Materia = materia_A2, DataHora = DateTime.Now });
 				}
 			}
 		}
