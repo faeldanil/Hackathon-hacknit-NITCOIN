@@ -1,51 +1,55 @@
-## Este é o repositório do HackNit referente ao tema *Educação*.
+OBJETIVO:
+A plataforma NITCOIN tem como objetivo incentivar a participação e engajamento dos responsáveis na vida escolar dos estudantes através da monetização de um TOKEN chamado “NITCOIN”, que poderá ser utilizado pelo responsável em uma rede de parceiros como farmácias, papelarias, padarias, mercados, lojas de material de construção e demais comércios, além de experiências que poderão ser usufruídas pela família como cinemas, teatros, restaurantes, dentre outras atividades.
 
-O arquivo info.txt contém informações acerca de como acessar os dados que devem ser utilizados na construção do projeto proposto.
+DINÂMICA:
+Para receber os NITCOINs, os responsáveis deverão acompanhar o desempenho e evolução dos indicadores dos estudantes através da plataforma (Acesso às informações dos estudantes de forma regular) e na sua participação em atividades escolares como reunião de pais, eventos e atividades (presença confirmada pelos professores).
+Além das atividades dos responsáveis, o desempenho dos estudantes também geram NITCOINs. Os indicadores que fazem parte da avaliação de desempenho são: 
+1)	Frequência;
+2)	Notas / Conceito;
+3)	Comportamento.
 
-Para acesso à base de dados de alunos contate a equipe de apoio no Telegram.
+Para cada um desses indicadores são parametrizadas as quantidades de NITCOINs que o estudante irá receber. Os dados dos indicadores dos estudantes serão integrados ao banco de dados do sistema escolar do município de forma que o professor não precise registrar em dois sistemas.
 
-### Instruções
+Os NITCOINs gerados a partir dos indicadores dos responsáveis e dos alunos serão somados a um saldo disponível aos responsáveis. 
+Na área de campanhas da rede de parceiros, os responsáveis poderão adquirir os cupons de acordo com as regras estipuladas pelos parceiros (ex. Com 10 NITCOINs o responsável troca por um cupom de 30% de desconto em medicamentos em uma determinada farmácia).
+Após conceder o benefício ao responsável, o comerciante deverá dar baixa no cupom para que este não seja reutilizado.
 
-*É recomendada a leitura dos capítulos 6 e 7 do [edital](https://github.com/seplagniteroi/hacknit/raw/master/EditaldeParticipantes-HackNIT_ERRATA.pdf), para garantir a conformidade do projeto com as regras do evento.*
+INDICADORES DE DESEMPENHO ESCOLAR:
+Visando estimular o engajamento de utilização na plataforma por parte dos responsáveis, os alunos e responsáveis terão acesso aos indicadores de desempenho globais da escola que será formado a partir dos resultados de desempenho dos seus estudantes. Com isso, será disponibilizado um ranking das escolas do município. Esse ranking visa criar um ambiente sadio de competição entre as escolas, além das atuais competições esportivas.  Esse processo visa desenvolver espírito de equipe, sensação de pertencimento a algo maior e de colaborações espontâneas entre os estudantes e responsáveis.
 
-É necessário possuir o [Git](https://git-scm.com/) instalado para utilizar os repositórios hospedados no GitHub. Um guia de introdução ao Git pode ser acessado em https://guides.github.com/introduction/git-handbook/.
+O ranking será um total acumulado de NITCOIN´s recebidos pelos alunos da escola ponderados pela quantidade de alunos da escola.
+Os professores também terão seus desempenhos medidos por essa média ponderada de NITCOIN´s recebidos pelos seus alunos.
+Esse ranking também proporcionará aos diretores avaliarem a evolução de suas ações, poderão saber quais escolas são benchmark para troca de experiências e melhores práticas.
 
-### Copiando o projeto
+REDE DE PARCEIROS:
+Os responsáveis terão acesso a uma área de “Campanhas”, onde terão acesso às promoções ofertadas pelas empresas parceiras. Como benefícios para os parceiros, podemos destacar:
 
-Um membro da equipe deverá fazer o fork do repositório. Isso pode ser feito clicando no botão **Fork** na parte superior da página:
+- Geração de leads para o estabelecimento;
+- Aumento de receita;
+- Exposição e publicidade;
+- Reconhecimento como uma empresa engajada na melhoria da educação e da comunidade.
+- Os parceiros recebem o selo “EMPRESA AMIGA DA ESCOLA” para expor em seu estabelecimento.
 
-![clone](https://github.com/seplagniteroi/hacknit/raw/master/images/fork.png)
+VOLUNTARIADO:
+A plataforma NITCOIN proporcionará para a comunidade a oportunidade de acompanhar o desempenho das escolas da cidade. A partir daí poderão oferecer de forma voluntária aulas de reforço, grupos de estudo, doação de recursos, aulas especiais (programação, culinária, oficinas diversas) voltadas para as escolas com melhor desempenho para estimular a evolução dos estudantes, doação de recursos, etc. Atualmente a população, mesmo que queira, não sabe de que forma pode ajudar.
 
-Esse membro deverá então fornecer as permissões necessárias aos demais membros da equipe. A criação de um time no GitHub permite conceder as permissões rapidamente.
+ROADMAP TECNOLÓGICO:
+Como forma desenvolvimento que se expande a esse HACKNIT, apresentamos as funcionalidades que pretendemos disponibilizar na plataforma:
 
-Após o fork ser realizado os membros da equipe podem baixar cópias locais do projeto, utilizando o comando git clone. O endereço do repositório pode ser acessado clicando no botão **Clone or download** nos controles superiores:
+- Indicadores relacionados à infraestrutura da escola:
 
-![clone](https://github.com/seplagniteroi/hacknit/raw/master/images/clone.png)
+	Índice de vandalismo: Mobiliário, banheiros, itens de apoio à educação, paredes, geral;
 
-### Entrega
+	Ambiente Escolar: Iluminação, merendas, limpeza, acessibilidade, inclusão social (indicadores apontados pelos alunos e responsáveis).
 
-O ato da entrega consiste em realizar um único pull request, que será processado automaticamente. Para realizar essa ação é necessário clicar no botão **New pull request** no repositório que contém o fork do projeto:
+- Impulsionamento de Escolas: As empresas que fazem parte da rede de parceiros poderão criar uma campanha impulsionada para uma determinada escola “alvo”, realizando a aquisição de NITCOIN´s. O valor referente a esses NITCOIN´s adquiridos serão disponibilizados para a escola que definirá a aplicação do recurso e informará na plataforma a sua destinação, de forma a dar transparência ao processo e como prestação de contas.
 
-![pullrequest](https://github.com/seplagniteroi/hacknit/raw/master/images/pullrequest.png)
+- Bônus de Rendimento Mensal: Os três estudantes de cada turma com melhor desempenho em cada mês receberão NITCOIN´s extras como forma de incentivo pelo seu esforço.
 
-Será necessaria a confirmação através do botão **Create pull request**:
+- Criação de “Badges” (Distintivos): Serão criados distintivos para os alunos, responsáveis e escolas que atingirem certas metas ou feitos. (Ex. Melhor da turma, Melhor da turma por 3 meses consecutivos, Zero faltas no mês, Melhor Evolução no mês, etc).
 
-![pullrequest2](https://github.com/seplagniteroi/hacknit/raw/master/images/pullrequest2.png)
+- NITCOINs para professores: Avaliação da inclusão do professor no programa de rede de parceiros para que este possa também ter benefícios pelo bom rendimento.
 
-Para o processamento correto do pull request, o título deve seguir **obrigatoriamente** o padrão:
+- Ranking do estudante: Apresentar ao responsável a posição do aluno diante da sua turma para estimulá-lo a intensificar o apoio ao estudante.
 
-> XX - Solução
 
-Onde XX é o número da equipe. A descrição é opcional:
-
-![pullrequest3](https://github.com/seplagniteroi/hacknit/raw/master/images/pullrequest3.png)
-
-***As entregas serão aceitas até 11:00 do dia 26 de agosto. após esse horário, não serão mais processadas.***
-
-Mais Informações sobre fork e pull request podem ser acessadas em https://guides.github.com/activities/forking/.
-
-### Documentação
-
-O arquivo README.MD deve ser **obrigatoriamente** substituído de forma a conter uma breve descrição da solução, assim como a especificação completa do ambiente que o projeto foi construído, incluindo sistema operacional, linguagens, frameworks, APIs, bibliotecas e quaisquer outras dependências, assim como as respectivas versões utilizadas.
-
-Qualquer dúvida sobre as operações descritas aqui podem ser encaminhadas ao canal [Hacknit](https://t.me/joinchat/BYx24Q0lDtHBc7P7gnfEOA) no Telegram.
