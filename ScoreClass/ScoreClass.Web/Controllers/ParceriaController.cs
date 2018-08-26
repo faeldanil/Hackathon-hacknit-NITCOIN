@@ -38,10 +38,11 @@ namespace ScoreClass.Web.Controllers
 			var fidelidade = parceria.Programas.FirstOrDefault(p => p.Id == fidelidadeId);
 			var voucher = repositorio.Voucher.FirstOrDefault(v => v.Codigo == codigoVoucher);
 
-			if ((voucher.Id != voucherId) || (voucher.Codigo != codigoVoucher) || (voucher.Fidelidade.Id != fidelidadeId) || (voucher.Fidelidade.Parceria.Id != parceriaId))
+			if ((voucher.Id != voucherId) || (voucher.Codigo != codigoVoucher) || (voucher.Fidelidade.Id != fidelidadeId) || (voucher.Fidelidade.Parceria.Id != parceriaId) || voucher.Resgatado.HasValue)
 				throw new Exception("Voucher Inválido");
 
 			voucher.Resgatado = DateTime.Now;
+
 			return View("Voucher", voucher);
 		}
 
@@ -75,6 +76,11 @@ namespace ScoreClass.Web.Controllers
 		public IActionResult Validar(String codigo)
 		{
 			var voucher = repositorio.Voucher.FirstOrDefault(v => v.Codigo == codigo);
+			if (voucher == null)
+				ViewData["Status"] = $"Este Voucher ({codigo}) não existe";
+			else if (voucher.Resgatado.HasValue)
+				ViewData["Status"] = $"Este Voucher ({codigo}) já foi resgatado";
+
 			return View(voucher);
 		}
 	}

@@ -1,14 +1,20 @@
 ﻿@model ScoreClass.Web.Models.Incentivos.Voucher
 
 @{
-    ViewData["Title"] = "Voucher";
+	ViewData["Title"] = "Voucher";
 }
 
 <h2>Voucher</h2>
 
 <div>
-    <h4>Voucher</h4>
-    <hr />
+	<h4>Voucher</h4>
+	<hr />
+@if ((ViewData != null) && ViewData["Status"] != null)
+{
+	<h3>@ViewData["Status"]</h3>
+}
+else
+{
 	<dl class="dl-horizontal">
 		<dt>
 			@Html.DisplayNameFor(model => model.Id)
@@ -65,4 +71,5 @@
 			</div>
 		</form>
 	</dl>
+}
 </div>
