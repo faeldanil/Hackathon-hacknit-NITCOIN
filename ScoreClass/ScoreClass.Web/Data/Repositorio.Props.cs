@@ -105,6 +105,11 @@ namespace ScoreClass.Web.Data
 						materia_A1.Frequencias.Add(new Frequencia { Bimestre = "4o", Compareceu = random.Next() % 2 == 0, Materia = materia_A1, DataHora = DateTime.Now });
 					}
 
+					materia_A1.Ocorrencias.Add(new Ocorrencia { Materia = materia_A1, DataHora = DateTime.Now, Descricao = "Passou mal em aula", TipoComportamento = StatusAvaliacao.Neutra });
+					materia_A1.Ocorrencias.Add(new Ocorrencia { Materia = materia_A1, DataHora = DateTime.Now, Descricao = "Apesenta sinais de cansaço", TipoComportamento = StatusAvaliacao.Negativa });
+					materia_A1.Ocorrencias.Add(new Ocorrencia { Materia = materia_A1, DataHora = DateTime.Now, Descricao = "Aluno se destacou dos demais pela pesquisa muito bem laborada", TipoComportamento = StatusAvaliacao.Positiva });
+
+
 					var materia_A2 = new Materia { Aluno = aluno2, Nome = disciplina.Nome, Disciplina = disciplina };
 					matricula2.Materias.Add(materia_A2);
 					materia_A2.Notas.Add(new Nota { Bimestre = "1o", Descricao = NotaAleatoria, Materia = materia_A2 });
@@ -119,6 +124,11 @@ namespace ScoreClass.Web.Data
 						materia_A2.Frequencias.Add(new Frequencia { Bimestre = "3o", Compareceu = random.Next() % 2 == 0, Materia = materia_A2, DataHora = DateTime.Now });
 						materia_A2.Frequencias.Add(new Frequencia { Bimestre = "4o", Compareceu = random.Next() % 2 == 0, Materia = materia_A2, DataHora = DateTime.Now });
 					}
+
+					materia_A2.Ocorrencias.Add(new Ocorrencia { Materia = materia_A2, DataHora = DateTime.Now, Descricao = "Passou mal em aula", TipoComportamento = StatusAvaliacao.Neutra });
+					materia_A2.Ocorrencias.Add(new Ocorrencia { Materia = materia_A2, DataHora = DateTime.Now, Descricao = "Apesenta sinais de cansaço", TipoComportamento = StatusAvaliacao.Negativa });
+					materia_A2.Ocorrencias.Add(new Ocorrencia { Materia = materia_A2, DataHora = DateTime.Now, Descricao = "Aluno se destacou dos demais pela pesquisa muito bem laborada", TipoComportamento = StatusAvaliacao.Positiva });
+
 				}
 			}
 		}
