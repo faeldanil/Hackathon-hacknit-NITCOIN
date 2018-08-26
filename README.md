@@ -1,5 +1,5 @@
 OBJETIVO:
-A plataforma NITCOIN tem como objetivo incentivar a participação e engajamento dos responsáveis na vida escolar dos estudantes através da monetização de um TOKEN chamado “NITCOIN”, que poderá ser utilizado pelo responsável em uma rede de parceiros como farmácias, papelarias, padarias, mercados, lojas de material de construção e demais comércios, além de experiências que poderão ser usufruídas pela família como cinemas, teatros, restaurantes, dentre outras atividades.
+A plataforma NITCOIN tem como objetivo incentivar a participação e engajamento dos responsáveis na vida escolar dos estudantes através da monetização de um TOKEN chamado “NITCOIN”, que poderá ser utilizado pelo responsável em uma rede de parceiros como farmácias, papelarias, padarias, mercados, lojas de material de construção e demais comércios, além de experiências que poderão ser usufruídas pela família em cinemas, teatros, restaurantes, dentre outras atividades.
 
 DINÂMICA:
 Para receber os NITCOINs, os responsáveis deverão acompanhar o desempenho e evolução dos indicadores dos estudantes através da plataforma (Acesso às informações dos estudantes de forma regular) e na sua participação em atividades escolares como reunião de pais, eventos e atividades (presença confirmada pelos professores).
@@ -8,7 +8,7 @@ Além das atividades dos responsáveis, o desempenho dos estudantes também gera
 2)	Notas / Conceito;
 3)	Comportamento.
 
-Para cada um desses indicadores são parametrizadas as quantidades de NITCOINs que o estudante irá receber. Os dados dos indicadores dos estudantes serão integrados ao banco de dados do sistema escolar do município de forma que o professor não precise registrar em dois sistemas.
+Para cada um desses indicadores são parametrizadas as quantidades de NITCOINs que o estudante irá receber. Os dados dos indicadores dos estudantes serão integrados ao banco de dados do sistema escolar já utilizado no município de forma que o professor não precise registrar em dois sistemas.
 
 Os NITCOINs gerados a partir dos indicadores dos responsáveis e dos alunos serão somados a um saldo disponível aos responsáveis. 
 Na área de campanhas da rede de parceiros, os responsáveis poderão adquirir os cupons de acordo com as regras estipuladas pelos parceiros (ex. Com 10 NITCOINs o responsável troca por um cupom de 30% de desconto em medicamentos em uma determinada farmácia).
@@ -28,7 +28,7 @@ Os responsáveis terão acesso a uma área de “Campanhas”, onde terão acess
 - Aumento de receita;
 - Exposição e publicidade;
 - Reconhecimento como uma empresa engajada na melhoria da educação e da comunidade.
-- Os parceiros recebem o selo “EMPRESA AMIGA DA ESCOLA” para expor em seu estabelecimento.
+- Os parceiros poderiam receber o selo “EMPRESA AMIGA DA ESCOLA” para expor em seu estabelecimento.
 
 VOLUNTARIADO:
 A plataforma NITCOIN proporcionará para a comunidade a oportunidade de acompanhar o desempenho das escolas da cidade. A partir daí poderão oferecer de forma voluntária aulas de reforço, grupos de estudo, doação de recursos, aulas especiais (programação, culinária, oficinas diversas) voltadas para as escolas com melhor desempenho para estimular a evolução dos estudantes, doação de recursos, etc. Atualmente a população, mesmo que queira, não sabe de que forma pode ajudar.
