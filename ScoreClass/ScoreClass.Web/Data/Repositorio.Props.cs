@@ -25,7 +25,6 @@ namespace ScoreClass.Web.Data
 		public IEnumerable<Fidelidade> Fidelidade { get => Obter<Fidelidade>(); }
 		public IEnumerable<NitCoin> NitCoin { get => Obter<NitCoin>(); }
 		public IEnumerable<PoliticaIncentivo> PoliticaIncentivo { get => Obter<PoliticaIncentivo>(); }
-		public IEnumerable<Voucher> Voucher { get => Obter<Voucher>(); }
 		public IEnumerable<Campanha> Campanha { get => Obter<Campanha>(); }
 
 
