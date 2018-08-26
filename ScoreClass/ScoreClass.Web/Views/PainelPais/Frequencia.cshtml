@@ -24,10 +24,10 @@
                     var materia = Model.Materias.FirstOrDefault(m => m.Disciplina == disciplina);
                 <tr>
                     <td>@Html.DisplayFor(m => disciplina.Nome)</td>
-                    <td>@Html.DisplayFor(m => materia.Frequencias.Count(x => x.Bimestre == "1o"))</td>
-                    <td>@Html.DisplayFor(m => materia.Frequencias.Count(x => x.Bimestre == "2o"))</td>
-                    <td>@Html.DisplayFor(m => materia.Frequencias.Count(x => x.Bimestre == "3o"))</td>
-                    <td>@Html.DisplayFor(m => materia.Frequencias.Count(x => x.Bimestre == "4o"))</td>
+                    <td>@Html.DisplayFor(m => materia.ObterFrequencias("1o"))</td>
+                    <td>@Html.DisplayFor(m => materia.ObterFrequencias("2o"))</td>
+                    <td>@Html.DisplayFor(m => materia.ObterFrequencias("3o"))</td>
+                    <td>@Html.DisplayFor(m => materia.ObterFrequencias("4o"))</td>
 
                 </tr>
                 }

@@ -8,6 +8,5 @@ namespace ScoreClass.Web.Models.Cadastros
         public DateTime DataHora { get; set; }
         public Materia Materia { get; set; }
         public string Bimestre { get; set; }
-        public int QuantidadeFrequencia { get; set; }
     }
 }
