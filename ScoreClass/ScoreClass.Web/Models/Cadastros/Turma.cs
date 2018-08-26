@@ -7,6 +7,6 @@ namespace ScoreClass.Web.Models.Cadastros
         public string Nome { get;  set; }
         public Escola Escola { get;  set; }
         public List<Matricula> Matriculas { get;  set; } = new List<Matricula>();
-
+		public List<Disciplina> Disciplinas { get; set; } = new List<Disciplina>();
 	}
 }
