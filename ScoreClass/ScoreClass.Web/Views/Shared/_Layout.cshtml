@@ -15,8 +15,8 @@
 			  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
 		<link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
 	</environment>
-</head>
-<body>
+</head> 
+<body background="/images/img/Capturar.PNG">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -38,7 +38,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li>
 						<a asp-area="" asp-controller="PainelPais" asp-action="ExtratoNitCoin">
-							<span id="saldoNitCoins" name="saldoNitCoins" style="color: white; position: absolute; width: 100px; top: 13px; left: -350px;">@ViewData["NitCoins"]</span>
+							<span id="saldoNitCoins" name="saldoNitCoins" style="color: yellow; position: absolute; width: 100px; top: 13px; left: -350px;"><b>@ViewData["NitCoins"]</b></span>
 						</a>
 					</li>
 				</ul>
@@ -48,10 +48,7 @@
     </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - ScoreClass.Web</p>
-        </footer>
+        
     </div>
 
 	<environment include="Development">
