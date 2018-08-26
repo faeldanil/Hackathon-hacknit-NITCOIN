@@ -57,12 +57,12 @@ namespace ScoreClass.Web.Data
 				var aluno2 = new Aluno { Nome = "Aluno 2", Responsavel = responsavel, Email = new Email { Descricao = "aluno2@nitcoin.com.br" } };
 				Add(aluno2);
 
-				var matricula1 = new Matricula { Aluno = aluno1, Turma = turma, Codigo = "codigo 1" };
+				var matricula1 = new Matricula { Aluno = aluno1, Turma = turma, Codigo = "codigo 1", AnoLetivo = DateTime.Today.Year };
 				Add(matricula1);
 				aluno1.Matriculas.Add(matricula1);
 				turma.Matriculas.Add(matricula1);
 
-				var matricula2 = new Matricula { Aluno = aluno2, Turma = turma, Codigo = "codigo 2" };
+				var matricula2 = new Matricula { Aluno = aluno2, Turma = turma, Codigo = "codigo 2", AnoLetivo = DateTime.Today.Year };
 				Add(matricula2);
 				aluno2.Matriculas.Add(matricula2);
 				turma.Matriculas.Add(matricula2);

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ScoreClass.Web.Data;
+using System;
 using System.Linq;
 
 namespace ScoreClass.Web.Controllers
@@ -16,7 +17,7 @@ namespace ScoreClass.Web.Controllers
 
         public ActionResult Index()
         {
-            var matricula = _context.Matricula.First(x => x.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
+            var matricula = _context.Matricula.FirstOrDefault(x => x.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name && x.AnoLetivo == DateTime.Today.Year);
             return View(matricula);
         }
 
