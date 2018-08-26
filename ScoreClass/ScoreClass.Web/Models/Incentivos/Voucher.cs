@@ -16,6 +16,7 @@ namespace ScoreClass.Web.Models.Incentivos
 		public TipoValor TipoValor { get; internal set; }
 		public Boolean Ativo { get => (Validade >= DateTime.Now) && !Resgatado.HasValue; }
 		public NitCoin NitCoin { get; internal set; }
+		public String Imagem { get => "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://nitcoin.azurewebsites.net/Parceria/Validar/" + Codigo; }
 
 		public Voucher()
 		{
