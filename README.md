@@ -38,9 +38,9 @@ Como forma desenvolvimento que se expande a esse HACKNIT, apresentamos as funcio
 
 - Indicadores relacionados à infraestrutura da escola:
 
-	Índice de vandalismo: Mobiliário, banheiros, itens de apoio à educação, paredes, geral;
+-	Índice de vandalismo: Mobiliário, banheiros, itens de apoio à educação, paredes, geral;
 
-	Ambiente Escolar: Iluminação, merendas, limpeza, acessibilidade, inclusão social (indicadores apontados pelos alunos e responsáveis).
+-	Ambiente Escolar: Iluminação, merendas, limpeza, acessibilidade, inclusão social (indicadores apontados pelos alunos e responsáveis).
 
 - Impulsionamento de Escolas: As empresas que fazem parte da rede de parceiros poderão criar uma campanha impulsionada para uma determinada escola “alvo”, realizando a aquisição de NITCOIN´s. O valor referente a esses NITCOIN´s adquiridos serão disponibilizados para a escola que definirá a aplicação do recurso e informará na plataforma a sua destinação, de forma a dar transparência ao processo e como prestação de contas.
 
