@@ -1,40 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ScoreClass.Web.Data;
 using ScoreClass.Web.Models.Cadastros;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ScoreClass.Web.Controllers
 {
-    public class EscolaController : Controller
+	public class EscolaController : Controller
     {
-        private readonly ApplicationDbContext _context;
+		private readonly Repositorio _context = Repositorio.Ativo;
 
-        public EscolaController(ApplicationDbContext context)
+		public EscolaController(ApplicationDbContext context)
         {
-            _context = context;
         }
 
         // GET: Escola
-        public async Task<IActionResult> Index()
+        public  IActionResult Index()
         {
-            return View(await _context.Escola.ToListAsync());
+            return View( _context.Escola.ToList());
         }
 
         // GET: Escola/Details/5
-        public async Task<IActionResult> Details(long? id)
+        public  IActionResult Details(long? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var escola = await _context.Escola
-                .SingleOrDefaultAsync(m => m.Id == id);
+            var escola =  _context.Escola
+                .SingleOrDefault(m => m.Id == id);
             if (escola == null)
             {
                 return NotFound();
@@ -54,26 +50,26 @@ namespace ScoreClass.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome")] Escola escola)
+        public  IActionResult Create([Bind("Id,Nome")] Escola escola)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(escola);
-                await _context.SaveChangesAsync();
+                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             return View(escola);
         }
 
         // GET: Escola/Edit/5
-        public async Task<IActionResult> Edit(long? id)
+        public  IActionResult Edit(long? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var escola = await _context.Escola.SingleOrDefaultAsync(m => m.Id == id);
+            var escola =  _context.Escola.SingleOrDefault(m => m.Id == id);
             if (escola == null)
             {
                 return NotFound();
@@ -86,7 +82,7 @@ namespace ScoreClass.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,Nome")] Escola escola)
+        public  IActionResult Edit(long id, [Bind("Id,Nome")] Escola escola)
         {
             if (id != escola.Id)
             {
@@ -98,7 +94,7 @@ namespace ScoreClass.Web.Controllers
                 try
                 {
                     _context.Update(escola);
-                    await _context.SaveChangesAsync();
+                     _context.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -117,15 +113,15 @@ namespace ScoreClass.Web.Controllers
         }
 
         // GET: Escola/Delete/5
-        public async Task<IActionResult> Delete(long? id)
+        public  IActionResult Delete(long? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var escola = await _context.Escola
-                .SingleOrDefaultAsync(m => m.Id == id);
+            var escola =  _context.Escola
+                .SingleOrDefault(m => m.Id == id);
             if (escola == null)
             {
                 return NotFound();
@@ -137,11 +133,11 @@ namespace ScoreClass.Web.Controllers
         // POST: Escola/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long id)
+        public  IActionResult DeleteConfirmed(long id)
         {
-            var escola = await _context.Escola.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Escola.Remove(escola);
-            await _context.SaveChangesAsync();
+            var escola =  _context.Escola.SingleOrDefault(m => m.Id == id);
+            _context.Remove(escola);
+             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
 

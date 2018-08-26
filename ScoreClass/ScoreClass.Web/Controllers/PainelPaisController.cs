@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ScoreClass.Web.Data;
-using ScoreClass.Web.Models;
+using System.Linq;
 
 namespace ScoreClass.Web.Controllers
 {
-    public class PainelPaisController : Controller
+	public class PainelPaisController : Controller
     {
-        private readonly ApplicationDbContext _context;
+		private readonly Repositorio _context = Repositorio.Ativo;
 
-        public PainelPaisController(ApplicationDbContext context)
+		public PainelPaisController(ApplicationDbContext context)
         {
-            _context = context;
         }
 
         public ActionResult Index()

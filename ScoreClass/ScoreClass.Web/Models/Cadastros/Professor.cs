@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ScoreClass.Web.Models.Cadastros
 {
-    public class Professor
-    {
-        [Key]
-        public long Id { get;  set; }
-        public string Nome { get;  set; }
-        public IEnumerable<Materia> Materias { get;  set; }
-    }
+	public class Professor : Entidade
+	{
+		public string Nome { get; set; }
+		public IEnumerable<Materia> Materias { get; set; }
+	}
 }

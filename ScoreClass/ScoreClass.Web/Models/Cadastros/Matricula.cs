@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ScoreClass.Web.Models.Cadastros
 {
-    public class Matricula
-    {
-        public long Id { get; set; }
+	public class Matricula : Entidade
+	{
         public string Codigo { get; set; }
         public virtual Aluno Aluno { get; set; }
 		public virtual Turma Turma { get; set; }

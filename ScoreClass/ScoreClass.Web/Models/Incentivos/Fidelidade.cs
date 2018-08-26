@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace ScoreClass.Web.Models.Incentivos
 {
@@ -9,10 +8,8 @@ namespace ScoreClass.Web.Models.Incentivos
 		Reais, Percentual
 	}
 
-	public class Fidelidade
+	public class Fidelidade : Entidade
 	{
-		[Key]
-		public Int64 Id { get; set; }
 		public virtual Parceria Parceria { get; set; }
 		public DateTime InicioVigencia { get; set; }
 		public DateTime FimVigencia { get; set; }
