@@ -46,8 +46,8 @@ namespace ScoreClass.Web.Controllers
 				escola.Turmas.Add(turma);
 
 				var responsavel = new Responsavel() { Nome = "Glautter", Email = new Email { Descricao = "glautterg@gmail.com" } };
-				var aluno1 = new Aluno { Nome = "Aluno 1", Reponsavel = responsavel, Email = new Email { Descricao = "aluno1@nitcoin.com.br" } };
-				var aluno2 = new Aluno { Nome = "Aluno 2", Reponsavel = responsavel, Email = new Email { Descricao = "aluno2@nitcoin.com.br" } };
+				var aluno1 = new Aluno { Nome = "Aluno 1", Responsavel = responsavel, Email = new Email { Descricao = "aluno1@nitcoin.com.br" } };
+				var aluno2 = new Aluno { Nome = "Aluno 2", Responsavel = responsavel, Email = new Email { Descricao = "aluno2@nitcoin.com.br" } };
 
 				var matricula1 = new Matricula { Aluno = aluno1, Turma = turma, Codigo = "codigo 1" };
 				var matricula2 = new Matricula { Aluno = aluno2, Turma = turma, Codigo = "codigo 2" };
