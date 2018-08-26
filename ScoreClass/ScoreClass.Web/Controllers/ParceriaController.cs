@@ -41,7 +41,7 @@ namespace ScoreClass.Web.Controllers
 			}
 			catch (Exception)
 			{
-
+				return View();
 			}
 		}
 	}
