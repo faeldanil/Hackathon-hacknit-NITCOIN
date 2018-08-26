@@ -60,6 +60,10 @@ namespace ScoreClass.Web.Data
 				var parceria = Add(new Parceria { Nome = "Farmacia nikit" });
 				parceria.Programas.Add(new Fidelidade { Parceria = parceria, Descricao = "5% de desconto em produtos de beleza por 2 nitCoins", InicioVigencia = DateTime.Today.AddDays(-3), FimVigencia = DateTime.Today.AddMonths(1), TaxaConversao = 2, TempoVigenciaEmDias = 7, Valor = 5, TipoValor = TipoValor.Percentual });
 				parceria.Programas.Add(new Fidelidade { Parceria = parceria, Descricao = "1 real de desconto em compras acima de 10 reais por apenas 1 nitCoin", InicioVigencia = DateTime.Today.AddDays(-3), FimVigencia = DateTime.Today.AddMonths(2), TaxaConversao = 1, TempoVigenciaEmDias = 7, Valor = 1, TipoValor = TipoValor.Reais });
+
+				Add(new PoliticaIncentivo { Id = 1, QuantidadePorAcesso = 1, QuantidadePorAcompanhamentoOnLine = 5, QuantidadePorAcompanhamentoPresencial = 100, InicioVigencia = new DateTime(2018, 08, 01) });
+				Add(new PoliticaIncentivo { Id = 2, QuantidadePorAcesso = 1, QuantidadePorAcompanhamentoOnLine = 5, QuantidadePorAcompanhamentoPresencial = 100, InicioVigencia = new DateTime(2018, 08, 01) });
+
 			}
 		}
 
@@ -131,6 +135,14 @@ namespace ScoreClass.Web.Data
 
 				}
 			}
+		}
+	}
+
+	public static class PoliticaIncentivoExtension
+	{
+		public static PoliticaIncentivo ObterAtivo(this IEnumerable<PoliticaIncentivo> politicas, DateTime data)
+		{
+			return politicas.Where(p => p.InicioVigencia <= data).OrderByDescending(p => p.InicioVigencia).FirstOrDefault();
 		}
 	}
 }

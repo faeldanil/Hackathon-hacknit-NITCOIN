@@ -2,14 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using ScoreClass.Web.Data;
 using ScoreClass.Web.Models.Cadastros;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace ScoreClass.Web.Controllers
 {
-	public class OcorrenciasController : Controller
+	public class OcorrenciasController : BaseController
 	{
-		private readonly Repositorio _context = Repositorio.Ativo;
 
 		public OcorrenciasController(ApplicationDbContext context)
 		{

@@ -6,10 +6,8 @@ using System.Linq;
 
 namespace ScoreClass.Web.Controllers
 {
-	public class AlunoController : Controller
+	public class AlunoController : BaseController
 	{
-		private readonly Repositorio _context = Repositorio.Ativo;
-
 		public AlunoController(ApplicationDbContext context) { }
 
 		// GET: Aluno

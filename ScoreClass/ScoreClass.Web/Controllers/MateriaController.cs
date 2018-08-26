@@ -2,15 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using ScoreClass.Web.Data;
 using ScoreClass.Web.Models.Cadastros;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace ScoreClass.Web.Controllers
 {
-	public class MateriaController : Controller
+	public class MateriaController : BaseController
 	{
-		private readonly Repositorio _context = Repositorio.Ativo;
-
 		public MateriaController(ApplicationDbContext context)
 		{
 		}

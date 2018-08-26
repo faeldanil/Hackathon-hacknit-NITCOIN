@@ -6,10 +6,8 @@ using System.Linq;
 
 namespace ScoreClass.Web.Controllers
 {
-	public class ResponsavelController : Controller
+	public class ResponsavelController : BaseController
 	{
-		private readonly Repositorio _context = Repositorio.Ativo;
-
 		public ResponsavelController(ApplicationDbContext context)
 		{
 		}

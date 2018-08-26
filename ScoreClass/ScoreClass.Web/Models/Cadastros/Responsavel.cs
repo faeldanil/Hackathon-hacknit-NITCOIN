@@ -1,4 +1,5 @@
-﻿using ScoreClass.Web.Extensions;
+﻿using ScoreClass.Web.Data;
+using ScoreClass.Web.Extensions;
 using ScoreClass.Web.Models.Incentivos;
 using System;
 using System.Collections.Generic;
@@ -21,15 +22,19 @@ namespace ScoreClass.Web.Models.Cadastros
 			return NitCoins.Sum(nc => nc.Quantidade);
 		}
 
-
 		public void RegistrarAtividade(TipoAtividade tipoAtividade)
 		{
-			var politicaIncentivo = PoliticasIncentivo.Instance.Value.ObterAtivo(DateTime.Today);
-			var quantidade = politicaIncentivo.ObterQuantidade(tipoAtividade);
+			var agora = DateTime.Now;
+			if (!NitCoins.Exists(nc => nc.Registro.Date == agora.Date && nc.TipoAtividade == tipoAtividade))
+			{
+				var politicaIncentivo = Repositorio.Ativo.PoliticaIncentivo.ObterAtivo(agora.Date);
+				var quantidade = politicaIncentivo.ObterQuantidade(tipoAtividade);
 
-			var nitCoin = new NitCoin { Responsavel = this, Quantidade = quantidade, Descricao = tipoAtividade.ToString(), Registro = DateTime.Now };
+				var nitCoin = new NitCoin { Responsavel = this, Quantidade = quantidade, Descricao = tipoAtividade.ToString(), Registro = agora, TipoAtividade = tipoAtividade };
 
-			NitCoins.Add(nitCoin);
+				NitCoins.Add(nitCoin);
+				Repositorio.Ativo.Add(nitCoin);
+			}
 		}
 
 		public Voucher GerarVoucher(Fidelidade fidelidade)
