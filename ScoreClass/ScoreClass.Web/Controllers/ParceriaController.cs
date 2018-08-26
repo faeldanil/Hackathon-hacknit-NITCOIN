@@ -29,19 +29,20 @@ namespace ScoreClass.Web.Controllers
 		[HttpPost]
 		public IActionResult Resgatar(IFormCollection formCollection)
 		{
+			var parceriaId = Convert.ToInt64(formCollection["parceriaId"]);
+			var fidelidadeId = Convert.ToInt64(formCollection["fidelidadeId"]);
 			try
 			{
-				var parceriaId = Convert.ToInt64(formCollection["parceriaId"]);
-				var fidelidadeId = Convert.ToInt64(formCollection["fidelidadeId"]);
 				var parceria = repositorio?.Parceria?.FirstOrDefault(p => p.Id == parceriaId);
 				var fidelidade = parceria.Programas.FirstOrDefault(p => p.Id == fidelidadeId);
 				var voucher = ResponsavelLogado.GerarVoucher(fidelidade);
+				repositorio.Add(voucher.NitCoin);
 				repositorio.Add(voucher);
 				return View("Voucher", voucher);
 			}
 			catch (Exception)
 			{
-				return View();
+				return this.RedirectToAction("Resgatar", "Parceria", new { parceriaId, fidelidadeId });
 			}
 		}
 	}

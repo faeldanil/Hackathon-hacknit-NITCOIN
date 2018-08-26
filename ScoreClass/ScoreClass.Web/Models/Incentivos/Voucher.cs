@@ -15,6 +15,7 @@ namespace ScoreClass.Web.Models.Incentivos
 		public DateTime? Resgatado { get; set; }
 		public TipoValor TipoValor { get; internal set; }
 		public Boolean Ativo { get => (Validade >= DateTime.Now) && !Resgatado.HasValue; }
+		public NitCoin NitCoin { get; internal set; }
 
 		public Voucher()
 		{

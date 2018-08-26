@@ -64,6 +64,7 @@ namespace ScoreClass.Web.Models.Cadastros
 				Descricao = $"Resgate Voucher de {fidelidade.Descricao}",
 			};
 
+			voucher.NitCoin = nitCoin;
 			NitCoins.Add(nitCoin);
 
 			var novoSaldoAtual = ObterSaldo();
