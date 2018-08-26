@@ -2,15 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ScoreClass.Web.Data;
+using ScoreClass.Web.Models.Incentivos;
 using System;
 using System.Linq;
 
 namespace ScoreClass.Web.Controllers
 {
-	public class PainelPaisController : Controller
-    {
-		private readonly Repositorio _context = Repositorio.Ativo;
-
+	public class PainelPaisController : BaseController
+	{
 		public PainelPaisController(ApplicationDbContext context)
         {
         }
@@ -18,6 +17,7 @@ namespace ScoreClass.Web.Controllers
         public ActionResult Index()
         {
             var matricula = _context.Matricula.FirstOrDefault(x => x.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
+			matricula.Aluno.Responsavel.RegistrarAtividade(TipoAtividade.AcompanhamentoOnLine);
             return View(matricula);
         }
 

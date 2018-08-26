@@ -32,20 +32,4 @@ namespace ScoreClass.Web.Models.Incentivos
 			}
 		}
 	}
-
-	public class PoliticasIncentivo
-	{
-		public static Lazy<PoliticasIncentivo> Instance = new Lazy<PoliticasIncentivo>();
-		private static readonly PoliticaIncentivo[] _politicas = new[]
-		{
-			new PoliticaIncentivo{Id = 1, QuantidadePorAcesso = 1, QuantidadePorAcompanhamentoOnLine = 5, QuantidadePorAcompanhamentoPresencial = 100, InicioVigencia = new DateTime(2018, 08,01)},
-			new PoliticaIncentivo{Id = 2, QuantidadePorAcesso = 1, QuantidadePorAcompanhamentoOnLine = 5, QuantidadePorAcompanhamentoPresencial = 100, InicioVigencia = new DateTime(2018, 08,01)},
-		};
-
-		public PoliticaIncentivo ObterAtivo(DateTime data)
-		{
-			return _politicas.Where(p => p.InicioVigencia <= data).OrderByDescending(p => p.InicioVigencia).FirstOrDefault();
-		}
-
-	}
 }

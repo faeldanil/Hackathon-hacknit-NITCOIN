@@ -10,5 +10,6 @@ namespace ScoreClass.Web.Models.Incentivos
 		public DateTime Registro { get; set; }
 		public String Descricao { get; set; }
 		public virtual Voucher Voucher { get; set; }
+		public TipoAtividade TipoAtividade { get; internal set; }
 	}
 }

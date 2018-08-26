@@ -28,14 +28,20 @@
                 </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ScoreClass</a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="PainelPais" asp-action="Index">Notas</a></li>
-                    <li><a asp-area="" asp-controller="PainelPais" asp-action="Frequencia">Frequência</a></li>
-                    <li><a asp-area="" asp-controller="PainelPais" asp-action="Ocorrencia">Ocorrência</a></li>
-                </ul>
-                @await Html.PartialAsync("_LoginPartial")
-            </div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a asp-area="" asp-controller="PainelPais" asp-action="Index">Notas</a></li>
+					<li><a asp-area="" asp-controller="PainelPais" asp-action="Frequencia">Frequência</a></li>
+					<li><a asp-area="" asp-controller="PainelPais" asp-action="Ocorrencia">Ocorrência</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<span id="saldoNitCoins" name="saldoNitCoins" style="color: white; position: absolute; width: 100px; top: 13px; left: -350px;">@ViewData["NitCoins"]</span>
+					</li>
+				</ul>
+
+				@await Html.PartialAsync("_LoginPartial")
+			</div>
         </div>
     </nav>
     <div class="container body-content">

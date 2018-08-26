@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ScoreClass.Web.Models;
+using System.Diagnostics;
 
 namespace ScoreClass.Web.Controllers
 {
-    public class HomeController : Controller
-    {
-        public IActionResult Index()
+	public class HomeController : BaseController
+	{
+		public IActionResult Index()
         {
-            return View();
+			return View();
         }
 
         public IActionResult About()

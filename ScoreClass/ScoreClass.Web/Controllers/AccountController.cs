@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using ScoreClass.Web.Models;
 using ScoreClass.Web.Models.AccountViewModels;
 using ScoreClass.Web.Services;
+using System;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace ScoreClass.Web.Controllers
 {
-    [Authorize]
+	[Authorize]
     [Route("[controller]/[action]")]
-    public class AccountController : Controller
-    {
+    public class AccountController : BaseController
+	{
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
