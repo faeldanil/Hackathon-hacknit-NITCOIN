@@ -18,16 +18,13 @@ namespace ScoreClass.Web.Data
 		public IEnumerable<Materia> Materia { get => Obter<Materia>(); }
 		public IEnumerable<Matricula> Matricula { get => Obter<Matricula>(); }
 		public IEnumerable<Ocorrencia> Ocorrencia { get => Obter<Ocorrencia>(); }
-		public IEnumerable<Pontualidade> Pontualidade { get => Obter<Pontualidade>(); }
 		public IEnumerable<Professor> Professor { get => Obter<Professor>(); }
 		public IEnumerable<Responsavel> Responsavel { get => Obter<Responsavel>(); }
-		public IEnumerable<Turma> Turma { get => Obter<Turma>(); }
 
 		public IEnumerable<Parceria> Parceria { get => Obter<Parceria>(); }
 		public IEnumerable<Fidelidade> Fidelidade { get => Obter<Fidelidade>(); }
 		public IEnumerable<NitCoin> NitCoin { get => Obter<NitCoin>(); }
 		public IEnumerable<PoliticaIncentivo> PoliticaIncentivo { get => Obter<PoliticaIncentivo>(); }
-		public IEnumerable<Voucher> Voucher { get => Obter<Voucher>(); }
 		public IEnumerable<Campanha> Campanha { get => Obter<Campanha>(); }
 
 
@@ -70,10 +67,8 @@ namespace ScoreClass.Web.Data
 		{
 			if (!Responsavel.Any())
 			{
-				var escola = new Escola { Nome = "ScoreClass" };
-				Add(escola);
-				var turma = new Turma { Nome = "7º Ano", Escola = escola };
-				Add(turma);
+				var escola = Add(new Escola { Nome = "ScoreClass" });
+				var turma = Add(new Turma { Nome = "7º Ano", Escola = escola });
 				escola.Turmas.Add(turma);
 
 				Add(new Disciplina { Nome = "matematica", Turma = turma });
@@ -81,22 +76,14 @@ namespace ScoreClass.Web.Data
 				Add(new Disciplina { Nome = "Ciencias", Turma = turma });
 				Add(new Disciplina { Nome = "geografia", Turma = turma });
 
-				var responsavel = new Responsavel() { Nome = "Glautter", Email = new Email { Descricao = "glautterg@gmail.com" } };
-				Add(responsavel);
-
-				var aluno1 = new Aluno { Nome = "Aluno 1", Responsavel = responsavel, Email = new Email { Descricao = "aluno1@nitcoin.com.br" } };
-				Add(aluno1);
-
-				var aluno2 = new Aluno { Nome = "Aluno 2", Responsavel = responsavel, Email = new Email { Descricao = "aluno2@nitcoin.com.br" } };
-				Add(aluno2);
-
-				var matricula1 = new Matricula { Aluno = aluno1, Turma = turma, Codigo = "codigo 1", AnoLetivo = DateTime.Today.Year };
-				Add(matricula1);
+				var responsavel = Add(new Responsavel() { Nome = "Glautter", Email = new Email { Descricao = "glautterg@gmail.com" } });
+				var aluno1 = Add(new Aluno { Nome = "Aluno 1", Responsavel = responsavel, Email = new Email { Descricao = "aluno1@nitcoin.com.br" } });
+				var matricula1 = Add(new Matricula { Aluno = aluno1, Turma = turma, Codigo = "codigo 1", AnoLetivo = DateTime.Today.Year });
 				aluno1.Matriculas.Add(matricula1);
 				turma.Matriculas.Add(matricula1);
 
-				var matricula2 = new Matricula { Aluno = aluno2, Turma = turma, Codigo = "codigo 2", AnoLetivo = DateTime.Today.Year };
-				Add(matricula2);
+				var aluno2 = Add(new Aluno { Nome = "Aluno 2", Responsavel = responsavel, Email = new Email { Descricao = "aluno2@nitcoin.com.br" } });
+				var matricula2 = Add(new Matricula { Aluno = aluno2, Turma = turma, Codigo = "codigo 2", AnoLetivo = DateTime.Today.Year });
 				aluno2.Matriculas.Add(matricula2);
 				turma.Matriculas.Add(matricula2);
 
@@ -110,11 +97,13 @@ namespace ScoreClass.Web.Data
 					materia_A1.Notas.Add(new Nota { Bimestre = "3o", Descricao = NotaAleatoria, Materia = materia_A1 });
 					materia_A1.Notas.Add(new Nota { Bimestre = "4o", Descricao = NotaAleatoria, Materia = materia_A1 });
 
-					materia_A1.Frequencias.Add(new Frequencia { Bimestre = "1o", Compareceu = true, Materia = materia_A1, DataHora = DateTime.Now });
-					materia_A1.Frequencias.Add(new Frequencia { Bimestre = "2o", Compareceu = true, Materia = materia_A1, DataHora = DateTime.Now });
-					materia_A1.Frequencias.Add(new Frequencia { Bimestre = "3o", Compareceu = true, Materia = materia_A1, DataHora = DateTime.Now });
-					materia_A1.Frequencias.Add(new Frequencia { Bimestre = "4o", Compareceu = true, Materia = materia_A1, DataHora = DateTime.Now });
-
+					for (int i = 0; i < 20; i++)
+					{
+						materia_A1.Frequencias.Add(new Frequencia { Bimestre = "1o", Compareceu = random.Next() % 2 == 0, Materia = materia_A1, DataHora = DateTime.Now });
+						materia_A1.Frequencias.Add(new Frequencia { Bimestre = "2o", Compareceu = random.Next() % 2 == 0, Materia = materia_A1, DataHora = DateTime.Now });
+						materia_A1.Frequencias.Add(new Frequencia { Bimestre = "3o", Compareceu = random.Next() % 2 == 0, Materia = materia_A1, DataHora = DateTime.Now });
+						materia_A1.Frequencias.Add(new Frequencia { Bimestre = "4o", Compareceu = random.Next() % 2 == 0, Materia = materia_A1, DataHora = DateTime.Now });
+					}
 
 					var materia_A2 = new Materia { Aluno = aluno2, Nome = disciplina.Nome, Disciplina = disciplina };
 					matricula2.Materias.Add(materia_A2);
@@ -123,10 +112,13 @@ namespace ScoreClass.Web.Data
 					materia_A2.Notas.Add(new Nota { Bimestre = "3o", Descricao = NotaAleatoria, Materia = materia_A2 });
 					materia_A2.Notas.Add(new Nota { Bimestre = "4o", Descricao = NotaAleatoria, Materia = materia_A2 });
 
-					materia_A2.Frequencias.Add(new Frequencia { Bimestre = "1o", Compareceu = true, Materia = materia_A2, DataHora = DateTime.Now });
-					materia_A2.Frequencias.Add(new Frequencia { Bimestre = "2o", Compareceu = true, Materia = materia_A2, DataHora = DateTime.Now });
-					materia_A2.Frequencias.Add(new Frequencia { Bimestre = "3o", Compareceu = true, Materia = materia_A2, DataHora = DateTime.Now });
-					materia_A2.Frequencias.Add(new Frequencia { Bimestre = "4o", Compareceu = true, Materia = materia_A2, DataHora = DateTime.Now });
+					for (int i = 0; i < 20; i++)
+					{
+						materia_A2.Frequencias.Add(new Frequencia { Bimestre = "1o", Compareceu = random.Next() % 2 == 0, Materia = materia_A2, DataHora = DateTime.Now });
+						materia_A2.Frequencias.Add(new Frequencia { Bimestre = "2o", Compareceu = random.Next() % 2 == 0, Materia = materia_A2, DataHora = DateTime.Now });
+						materia_A2.Frequencias.Add(new Frequencia { Bimestre = "3o", Compareceu = random.Next() % 2 == 0, Materia = materia_A2, DataHora = DateTime.Now });
+						materia_A2.Frequencias.Add(new Frequencia { Bimestre = "4o", Compareceu = random.Next() % 2 == 0, Materia = materia_A2, DataHora = DateTime.Now });
+					}
 				}
 			}
 		}
