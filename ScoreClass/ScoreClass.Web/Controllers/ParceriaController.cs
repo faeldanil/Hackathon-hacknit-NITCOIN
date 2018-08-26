@@ -9,7 +9,7 @@ namespace ScoreClass.Web.Controllers
 	{
 		public IActionResult Index()
 		{
-			return View();
+			return View(repositorio?.Parceria);
 		}
 
 		public IActionResult Fidelidade(int id)
@@ -29,13 +29,20 @@ namespace ScoreClass.Web.Controllers
 		[HttpPost]
 		public IActionResult Resgatar(FormCollection formCollection)
 		{
-			var parceriaId = Convert.ToInt64(formCollection["parceriaId"]);
-			var fidelidadeId = Convert.ToInt64(formCollection["fidelidadeId"]);
-			var parceria = repositorio?.Parceria?.FirstOrDefault(p => p.Id == parceriaId);
-			var fidelidade = parceria.Programas.FirstOrDefault(p => p.Id == fidelidadeId);
-			var voucher = ResponsavelLogado.GerarVoucher(fidelidade);
-			repositorio.Add(voucher);
-			return View("Voucher", voucher);
+			try
+			{
+				var parceriaId = Convert.ToInt64(formCollection["parceriaId"]);
+				var fidelidadeId = Convert.ToInt64(formCollection["fidelidadeId"]);
+				var parceria = repositorio?.Parceria?.FirstOrDefault(p => p.Id == parceriaId);
+				var fidelidade = parceria.Programas.FirstOrDefault(p => p.Id == fidelidadeId);
+				var voucher = ResponsavelLogado.GerarVoucher(fidelidade);
+				repositorio.Add(voucher);
+				return View("Voucher", voucher);
+			}
+			catch (Exception)
+			{
+
+			}
 		}
 	}
 }
