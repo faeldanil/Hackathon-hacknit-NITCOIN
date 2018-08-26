@@ -7,8 +7,9 @@ namespace ScoreClass.Web.Models.Incentivos
 {
 	public enum TipoAtividade
 	{
-		Acesso, AcompanhamentoOnLine, AcompanhamentoPresencial, RendimentoAluno
-	}
+		Acesso, AcompanhamentoOnLine, AcompanhamentoPresencial, RendimentoAluno, AcompanhamentoOnLinePresenca,
+        AcompanhamentoOnLineOcorrencia
+    }
 
 	public class PoliticaIncentivo : Entidade
 	{
@@ -28,7 +29,7 @@ namespace ScoreClass.Web.Models.Incentivos
 				case TipoAtividade.AcompanhamentoPresencial:
 					return QuantidadePorAcompanhamentoPresencial;
 				default:
-					return 0;
+					return 1;
 			}
 		}
 	}

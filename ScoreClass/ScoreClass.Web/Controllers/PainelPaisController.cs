@@ -22,13 +22,15 @@ namespace ScoreClass.Web.Controllers
 		public ActionResult Frequencia()
 		{
 			var matricula = repositorio.Matricula.FirstOrDefault(x => x.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
-			return View(matricula);
+            ResponsavelLogado.RegistrarAtividade(TipoAtividade.AcompanhamentoOnLinePresenca);
+            return View(matricula);
 		}
 
 		public ActionResult Ocorrencia()
 		{
 			var matricula = repositorio.Matricula.FirstOrDefault(x => x.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
-			return View(matricula);
+            ResponsavelLogado.RegistrarAtividade(TipoAtividade.AcompanhamentoOnLineOcorrencia); 
+            return View(matricula);
 		}
 
 		public ActionResult ExtratoNitCoin()
