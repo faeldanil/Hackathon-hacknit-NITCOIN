@@ -16,8 +16,8 @@ namespace ScoreClass.Web.Controllers
 
         public ActionResult Index()
         {
-            _context.Matricula.Where(x => x.Aluno.Reponsavel.Email.Descricao == User.Identity.Name);
-            return View();
+            var matricula = _context.Matricula.Where(x => x.Aluno.Reponsavel.Email.Descricao == User.Identity.Name);
+            return View(matricula);
         }
 
         public ActionResult Details(int id)
