@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ScoreClass.Web.Models.Incentivos.NitCoin>
+
+@{
+	ViewData["Title"] = "Extrato de NITCOINs";
+}
+
+<h2>Extrato de NITCOINs</h2>
+<table class="table">
+	<thead>
+		<tr>
+			<th>@Html.DisplayNameFor(model => model.Id)</th>
+			<th>@Html.DisplayNameFor(model => model.Registro)</th>
+			<th>@Html.DisplayNameFor(model => model.Quantidade)</th>
+			<th>@Html.DisplayNameFor(model => model.Descricao)</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@Html.DisplayFor(modelItem => item.Id)</td>
+				<td>@Html.DisplayFor(modelItem => item.Registro)</td>
+				<td>@Html.DisplayFor(modelItem => item.Quantidade)</td>
+				<td>@Html.DisplayFor(modelItem => item.Descricao)</td>
+			</tr>
+		}
+	</tbody>
+</table>

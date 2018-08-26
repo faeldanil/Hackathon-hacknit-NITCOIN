@@ -33,6 +33,7 @@ namespace ScoreClass.Web.Models.Cadastros
 				var nitCoin = new NitCoin { Responsavel = this, Quantidade = quantidade, Descricao = tipoAtividade.ToString(), Registro = agora, TipoAtividade = tipoAtividade };
 
 				NitCoins.Add(nitCoin);
+				Repositorio.Ativo.Add(nitCoin);
 			}
 		}
 
