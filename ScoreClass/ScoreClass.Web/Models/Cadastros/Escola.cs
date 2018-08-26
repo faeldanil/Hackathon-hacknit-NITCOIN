@@ -11,6 +11,6 @@ namespace ScoreClass.Web.Models.Cadastros
         [Key]
         public long Id { get;  set; }
         public string Nome { get;  set; }
-		public virtual List<Turma> Turmas { get; set; }
+		public virtual List<Turma> Turmas { get; set; } = new List<Turma>();
 	}
 }
