@@ -68,6 +68,10 @@ namespace ScoreClass.Web.Data
 				parceria2.Programas.Add(Add(new Fidelidade { Parceria = parceria2, Descricao = "10% de desconto em verduras hidroponicas", InicioVigencia = DateTime.Today.AddDays(-3), FimVigencia = DateTime.Today.AddMonths(1), TaxaConversao = 3, TempoVigenciaEmDias = 7, Valor = 5, TipoValor = TipoValor.Percentual }));
 				parceria2.Programas.Add(Add(new Fidelidade { Parceria = parceria2, Descricao = "5% de desconto em compras acima de 50 reais", InicioVigencia = DateTime.Today.AddDays(-3), FimVigencia = DateTime.Today.AddMonths(2), TaxaConversao = 1, TempoVigenciaEmDias = 7, Valor = 1, TipoValor = TipoValor.Percentual }));
 				parceria2.Programas.Add(Add(new Fidelidade { Parceria = parceria2, Descricao = "R$ 5,00 de desconto em compras acima de 50 reais", InicioVigencia = DateTime.Today.AddDays(-3), FimVigencia = DateTime.Today.AddMonths(2), TaxaConversao = 1, TempoVigenciaEmDias = 7, Valor = 1, TipoValor = TipoValor.Valor }));
+
+				var parceria3 = Add(new Parceria { Nome = "Cinema" });
+				parceria3.Programas.Add(Add(new Fidelidade { Parceria = parceria3, Descricao = "10% de desconto em Compos de pipocas", InicioVigencia = DateTime.Today.AddDays(-3), FimVigencia = DateTime.Today.AddMonths(1), TaxaConversao = 3, TempoVigenciaEmDias = 7, Valor = 5, TipoValor = TipoValor.Percentual }));
+				parceria3.Programas.Add(Add(new Fidelidade { Parceria = parceria3, Descricao = "5% de desconto em Filmes", InicioVigencia = DateTime.Today.AddDays(-3), FimVigencia = DateTime.Today.AddMonths(2), TaxaConversao = 1, TempoVigenciaEmDias = 7, Valor = 1, TipoValor = TipoValor.Percentual }));
 			}
 		}
 
