@@ -1,4 +1,5 @@
 ﻿using ScoreClass.Web.Models.Cadastros;
+using ScoreClass.Web.Models.Campanhas;
 using ScoreClass.Web.Models.Incentivos;
 using System;
 using System.Collections.Generic;
@@ -22,18 +23,50 @@ namespace ScoreClass.Web.Data
 		public IEnumerable<Responsavel> Responsavel { get => Obter<Responsavel>(); }
 		public IEnumerable<Turma> Turma { get => Obter<Turma>(); }
 
+		public IEnumerable<Parceria> Parceria { get => Obter<Parceria>(); }
 		public IEnumerable<Fidelidade> Fidelidade { get => Obter<Fidelidade>(); }
 		public IEnumerable<NitCoin> NitCoin { get => Obter<NitCoin>(); }
-		public IEnumerable<Parceria> Parceria { get => Obter<Parceria>(); }
 		public IEnumerable<PoliticaIncentivo> PoliticaIncentivo { get => Obter<PoliticaIncentivo>(); }
 		public IEnumerable<Voucher> Voucher { get => Obter<Voucher>(); }
+		public IEnumerable<Campanha> Campanha { get => Obter<Campanha>(); }
+
+
+
 
 		private readonly Random random = new Random();
 
 		public string NotaAleatoria { get => (Convert.ToDecimal(random.Next(0, 100)) / 10M).ToString(); }
 
 		public Repositorio() { Setup(); }
+
 		private void Setup()
+		{
+			SetupAlunos();
+			SetupParceiros();
+			SetupCampanhas();
+		}
+
+		private void SetupCampanhas()
+		{
+			if (!Campanha.Any())
+			{
+				Add(new Campanha { Titulo = "Aulão de Matematica", Descricao = "Grande Aulao", Inicio = DateTime.Today.AddHours(14), Termino = DateTime.Today.AddHours(17), TipoCampanha = TipoCampanha.AulaReforco });
+				Add(new Campanha { Titulo = "Grupo de Estudos", Descricao = "Gupo de estudos", Inicio = DateTime.Today.AddDays(1).AddHours(15), Termino = DateTime.Today.AddDays(1).AddHours(17), TipoCampanha = TipoCampanha.GrupoEstudo });
+				Add(new Campanha { Titulo = "Passeio no Bosque", Descricao = "Gupo de estudos", Inicio = DateTime.Today.AddDays(3).AddHours(13), Termino = DateTime.Today.AddDays(3).AddHours(16), TipoCampanha = TipoCampanha.InclusaoSocial });
+			}
+		}
+
+		private void SetupParceiros()
+		{
+			if (!Parceria.Any())
+			{
+				var parceria = Add(new Parceria { Nome = "Farmacia nikit" });
+				parceria.Programas.Add(new Fidelidade { Parceria = parceria, Descricao = "5% de desconto em produtos de beleza por 2 nitCoins", InicioVigencia = DateTime.Today.AddDays(-3), FimVigencia = DateTime.Today.AddMonths(1), TaxaConversao = 2, TempoVigenciaEmDias = 7, Valor = 5, TipoValor = TipoValor.Percentual });
+				parceria.Programas.Add(new Fidelidade { Parceria = parceria, Descricao = "1 real de desconto em compras acima de 10 reais por apenas 1 nitCoin", InicioVigencia = DateTime.Today.AddDays(-3), FimVigencia = DateTime.Today.AddMonths(2), TaxaConversao = 1, TempoVigenciaEmDias = 7, Valor = 1, TipoValor = TipoValor.Reais });
+			}
+		}
+
+		private void SetupAlunos()
 		{
 			if (!Responsavel.Any())
 			{

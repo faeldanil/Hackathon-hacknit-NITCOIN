@@ -17,10 +17,11 @@ namespace ScoreClass.Web.Data
 			return cache.Obter();
 		}
 
-		public void Add<TEntidade>(TEntidade entidade) where TEntidade : Entidade
+		public TEntidade Add<TEntidade>(TEntidade entidade) where TEntidade : Entidade
 		{
 			var cache = ObterCache<TEntidade>();
 			cache.Incluir(entidade);
+			return entidade;
 		}
 
 		public void Remove<TEntidade>(TEntidade entidade) where TEntidade : Entidade
