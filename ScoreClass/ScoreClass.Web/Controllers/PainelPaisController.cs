@@ -23,8 +23,8 @@ namespace ScoreClass.Web.Controllers
 
         public ActionResult Frequencia()
         {
-            var frequencia = _context.Frequencia.FirstOrDefault(x => x.Materia.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
-            return View(frequencia);
+            var matricula = _context.Matricula.FirstOrDefault(x => x.Aluno.Responsavel.Email.Descricao == User?.Identity?.Name);
+            return View(matricula);
         }
 
         public ActionResult Ocorrencia()
