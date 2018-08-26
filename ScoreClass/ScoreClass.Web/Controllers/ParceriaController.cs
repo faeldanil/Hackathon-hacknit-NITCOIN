@@ -46,9 +46,9 @@ namespace ScoreClass.Web.Controllers
 			}
 		}
 
-		public IActionResult Voucher(int voucherId)
+		public IActionResult Voucher(int id)
 		{
-			var voucher = ResponsavelLogado.Vouchers.FirstOrDefault(v => v.Id == voucherId);
+			var voucher = ResponsavelLogado.Vouchers.FirstOrDefault(v => v.Id == id);
 			return View(voucher);
 		}
 	}
