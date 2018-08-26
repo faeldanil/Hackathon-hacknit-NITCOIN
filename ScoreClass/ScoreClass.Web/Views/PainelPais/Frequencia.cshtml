@@ -1,0 +1,36 @@
+﻿@model ScoreClass.Web.Models.Cadastros.Matricula
+@using ScoreClass.Web.Data
+
+@{
+    Layout = "_Layout";
+}
+
+<div>
+    <h4>Aluno</h4>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Matéria/Bimestre</th>
+                    <th scope="col">1º</th>
+                    <th scope="col">2º</th>
+                    <th scope="col">3º</th>
+                    <th scope="col">4º</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var disciplina in Repositorio.Ativo.Disciplina)
+                {
+                    var materia = Model.Materias.FirstOrDefault(m => m.Disciplina == disciplina);
+                <tr>
+                    <td>@Html.DisplayFor(m => disciplina.Nome)</td>
+                    <td>@Html.DisplayFor(m => materia.Frequencias.Where(x => x.Bimestre == "1o").Count())</td>
+                    <td>@Html.DisplayFor(m => materia.Frequencias.Where(x => x.Bimestre == "2o").Count())</td>
+                    <td>@Html.DisplayFor(m => materia.Frequencias.Where(x => x.Bimestre == "3o").Count())</td>
+                    <td>@Html.DisplayFor(m => materia.Frequencias.Where(x => x.Bimestre == "4o").Count())</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
