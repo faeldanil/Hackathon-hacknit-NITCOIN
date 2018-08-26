@@ -1,16 +1,12 @@
-﻿using ScoreClass.Web.Models.Cadastros;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
 using System.Linq;
 
 namespace ScoreClass.Web.Models.Incentivos
 {
-	public class Voucher
+	public class Voucher : Entidade
 	{
 		private static readonly Random rand = new Random();
 
-		[Key]
-		public Int64 Id { get; set; }
 		public virtual Fidelidade Fidelidade { get; set; }
 		public Int32 Quantidade { get; set; }
 		public Decimal Valor { get; set; }

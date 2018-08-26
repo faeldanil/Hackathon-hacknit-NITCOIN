@@ -5,16 +5,13 @@ using System.Linq;
 
 namespace ScoreClass.Web.Models.Incentivos
 {
-
 	public enum TipoAtividade
 	{
 		Acesso, AcompanhamentoOnLine, AcompanhamentoPresencial, RendimentoAluno
 	}
 
-	public class PoliticaIncentivo
+	public class PoliticaIncentivo : Entidade
 	{
-		[Key]
-		public Int64 Id { get; set; }
 		public Int32 QuantidadePorAcesso { get; set; }
 		public Int32 QuantidadePorAcompanhamentoOnLine { get; set; }
 		public Int32 QuantidadePorAcompanhamentoPresencial { get; set; }

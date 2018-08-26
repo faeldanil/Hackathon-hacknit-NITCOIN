@@ -1,40 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ScoreClass.Web.Data;
 using ScoreClass.Web.Models.Cadastros;
+using System.Linq;
 
 namespace ScoreClass.Web.Controllers
 {
-    public class ResponsavelController : Controller
+	public class ResponsavelController : Controller
     {
-        private readonly ApplicationDbContext _context;
+		private readonly Repositorio _context = Repositorio.Ativo;
 
-        public ResponsavelController(ApplicationDbContext context)
+		public ResponsavelController(ApplicationDbContext context)
         {
-            _context = context;
         }
 
         // GET: Responsavel
-        public async Task<IActionResult> Index()
+        public  IActionResult Index()
         {
-            return View(await _context.Responsavel.ToListAsync());
+            return View( _context.Responsavel.ToList());
         }
 
         // GET: Responsavel/Details/5
-        public async Task<IActionResult> Details(long? id)
+        public  IActionResult Details(long? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var responsavel = await _context.Responsavel
-                .SingleOrDefaultAsync(m => m.Id == id);
+            var responsavel =  _context.Responsavel
+                .SingleOrDefault(m => m.Id == id);
             if (responsavel == null)
             {
                 return NotFound();
@@ -54,26 +49,26 @@ namespace ScoreClass.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Telefone,Cpf")] Responsavel responsavel)
+        public  IActionResult Create([Bind("Id,Nome,Telefone,Cpf")] Responsavel responsavel)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(responsavel);
-                await _context.SaveChangesAsync();
+                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             return View(responsavel);
         }
 
         // GET: Responsavel/Edit/5
-        public async Task<IActionResult> Edit(long? id)
+        public  IActionResult Edit(long? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var responsavel = await _context.Responsavel.SingleOrDefaultAsync(m => m.Id == id);
+            var responsavel =  _context.Responsavel.SingleOrDefault(m => m.Id == id);
             if (responsavel == null)
             {
                 return NotFound();
@@ -86,7 +81,7 @@ namespace ScoreClass.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,Nome,Telefone,Cpf")] Responsavel responsavel)
+        public  IActionResult Edit(long id, [Bind("Id,Nome,Telefone,Cpf")] Responsavel responsavel)
         {
             if (id != responsavel.Id)
             {
@@ -98,7 +93,7 @@ namespace ScoreClass.Web.Controllers
                 try
                 {
                     _context.Update(responsavel);
-                    await _context.SaveChangesAsync();
+                     _context.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -117,15 +112,15 @@ namespace ScoreClass.Web.Controllers
         }
 
         // GET: Responsavel/Delete/5
-        public async Task<IActionResult> Delete(long? id)
+        public  IActionResult Delete(long? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var responsavel = await _context.Responsavel
-                .SingleOrDefaultAsync(m => m.Id == id);
+            var responsavel =  _context.Responsavel
+                .SingleOrDefault(m => m.Id == id);
             if (responsavel == null)
             {
                 return NotFound();
@@ -137,11 +132,11 @@ namespace ScoreClass.Web.Controllers
         // POST: Responsavel/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long id)
+        public  IActionResult DeleteConfirmed(long id)
         {
-            var responsavel = await _context.Responsavel.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Responsavel.Remove(responsavel);
-            await _context.SaveChangesAsync();
+            var responsavel =  _context.Responsavel.SingleOrDefault(m => m.Id == id);
+            _context.Remove(responsavel);
+             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
 
