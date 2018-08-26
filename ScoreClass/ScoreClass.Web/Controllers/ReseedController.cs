@@ -4,7 +4,7 @@ using ScoreClass.Web.Models.Cadastros;
 using System.Linq;
 
 
-namespace ScoreClass.Web
+namespace ScoreClass.Web.Controllers
 {
 	[Route("api/[controller]")]
 	public class ReseedController : Controller
