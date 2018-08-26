@@ -84,19 +84,19 @@ namespace ScoreClass.Web.Data
 				materia5a1.Notas.Add(new Nota { Bimestre = "2o", Descricao = "6,5", Materia = materia5a1 });
 				materia6a1.Notas.Add(new Nota { Bimestre = "2o", Descricao = "10,0", Materia = materia6a1 });
 
-				materia1a2.Notas.Add(new Nota { Bimestre = "1o", Descricao = "8,6", Materia = materia1a2 });
-				materia2a2.Notas.Add(new Nota { Bimestre = "1o", Descricao = "6,7", Materia = materia2a2 });
-				materia3a2.Notas.Add(new Nota { Bimestre = "1o", Descricao = "7,3", Materia = materia3a2 });
-				materia4a2.Notas.Add(new Nota { Bimestre = "1o", Descricao = "8,7", Materia = materia4a2 });
-				materia5a2.Notas.Add(new Nota { Bimestre = "1o", Descricao = "5,6", Materia = materia5a2 });
-				materia6a2.Notas.Add(new Nota { Bimestre = "1o", Descricao = "6,8", Materia = materia6a2 });
+				//materia1a2.Notas.Add(new Nota { Bimestre = "1o", Descricao = "8,6", Materia = materia1a2 });
+				//materia2a2.Notas.Add(new Nota { Bimestre = "1o", Descricao = "6,7", Materia = materia2a2 });
+				//materia3a2.Notas.Add(new Nota { Bimestre = "1o", Descricao = "7,3", Materia = materia3a2 });
+				//materia4a2.Notas.Add(new Nota { Bimestre = "1o", Descricao = "8,7", Materia = materia4a2 });
+				//materia5a2.Notas.Add(new Nota { Bimestre = "1o", Descricao = "5,6", Materia = materia5a2 });
+				//materia6a2.Notas.Add(new Nota { Bimestre = "1o", Descricao = "6,8", Materia = materia6a2 });
 
-				materia1a2.Notas.Add(new Nota { Bimestre = "2o", Descricao = "6,6", Materia = materia1a2 });
-				materia2a2.Notas.Add(new Nota { Bimestre = "2o", Descricao = "7,5", Materia = materia2a2 });
-				materia3a2.Notas.Add(new Nota { Bimestre = "2o", Descricao = "10,0", Materia = materia3a2 });
-				materia4a2.Notas.Add(new Nota { Bimestre = "2o", Descricao = "9,4", Materia = materia4a2 });
-				materia5a2.Notas.Add(new Nota { Bimestre = "2o", Descricao = "5,9", Materia = materia5a2 });
-				materia6a2.Notas.Add(new Nota { Bimestre = "2o", Descricao = "8,8", Materia = materia6a2 });
+				//materia1a2.Notas.Add(new Nota { Bimestre = "2o", Descricao = "6,6", Materia = materia1a2 });
+				//materia2a2.Notas.Add(new Nota { Bimestre = "2o", Descricao = "7,5", Materia = materia2a2 });
+				//materia3a2.Notas.Add(new Nota { Bimestre = "2o", Descricao = "10,0", Materia = materia3a2 });
+				//materia4a2.Notas.Add(new Nota { Bimestre = "2o", Descricao = "9,4", Materia = materia4a2 });
+				//materia5a2.Notas.Add(new Nota { Bimestre = "2o", Descricao = "5,9", Materia = materia5a2 });
+				//materia6a2.Notas.Add(new Nota { Bimestre = "2o", Descricao = "8,8", Materia = materia6a2 });
 
 
 				aluno1.Matriculas.Add(matricula1);
