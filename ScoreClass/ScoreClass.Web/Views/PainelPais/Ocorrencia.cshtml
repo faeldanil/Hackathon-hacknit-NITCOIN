@@ -1,7 +1,35 @@
-﻿
+﻿@model ScoreClass.Web.Models.Cadastros.Matricula
+@using ScoreClass.Web.Data
+
 @{
-    ViewData["Title"] = "Ocorrencia";
+    Layout = "_Layout";
 }
 
-<h2>Ocorrencia</h2>
-
+<div>
+    <h4>Aluno</h4>
+    <div class="table-responsive">
+        @foreach (var disciplina in Repositorio.Ativo.Disciplina)
+        {
+            <h4>@Html.DisplayFor(m => disciplina.Nome)</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Data e Hora</th>
+                        <th scope="col">Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ocorrencia in Model.Materias.FirstOrDefault(m => m.Disciplina == disciplina).Ocorrencias)
+                    {
+                        <tr>
+                            <td>@ocorrencia.Descricao</td>
+                            <td>@ocorrencia.DataHora</td>
+                            <td>@ocorrencia.TipoComportamento</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
