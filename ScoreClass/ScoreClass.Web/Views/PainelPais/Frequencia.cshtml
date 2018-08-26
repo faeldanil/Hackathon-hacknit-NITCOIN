@@ -22,13 +22,13 @@
                 @foreach (var disciplina in Repositorio.Ativo.Disciplina)
                 {
                     var materia = Model.Materias.FirstOrDefault(m => m.Disciplina == disciplina);
-                    <tr>
-                        <td>@Html.DisplayFor(m => disciplina.Nome)</td>
-                        <td>@Html.DisplayFor(m => materia.Notas.FirstOrDefault(x => x.Bimestre == "1o").Descricao)</td>
-                        <td>@Html.DisplayFor(m => materia.Notas.FirstOrDefault(x => x.Bimestre == "2o").Descricao)</td>
-                        <td>@Html.DisplayFor(m => materia.Notas.FirstOrDefault(x => x.Bimestre == "3o").Descricao)</td>
-                        <td>@Html.DisplayFor(m => materia.Notas.FirstOrDefault(x => x.Bimestre == "4o").Descricao)</td>
-                    </tr>
+                <tr>
+                    <td>@Html.DisplayFor(m => disciplina.Nome)</td>
+                    <td>@Html.DisplayFor(m => materia.Frequencias.Where(x => x.Bimestre == "1o").Count())</td>
+                    <td>@Html.DisplayFor(m => materia.Frequencias.Where(x => x.Bimestre == "2o").Count())</td>
+                    <td>@Html.DisplayFor(m => materia.Frequencias.Where(x => x.Bimestre == "3o").Count())</td>
+                    <td>@Html.DisplayFor(m => materia.Frequencias.Where(x => x.Bimestre == "4o").Count())</td>
+                </tr>
                 }
             </tbody>
         </table>
