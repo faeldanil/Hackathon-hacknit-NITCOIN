@@ -36,6 +36,11 @@ namespace ScoreClass.Web.Controllers
 			return View(ResponsavelLogado.NitCoins);
 		}
 
+		public ActionResult Vouchers()
+		{
+			return View(ResponsavelLogado.Vouchers);
+		}
+
 		public ActionResult Details(int id)
 		{
 			return View();
