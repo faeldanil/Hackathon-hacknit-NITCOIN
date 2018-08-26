@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<ScoreClass.Web.Models.Incentivos.Fidelidade>
 
-
 @{
 	Layout = "_Layout";
 }
@@ -10,6 +9,16 @@
 	<div class="table-responsive">
 		@foreach (var fidelidade in Model)
 		{
+			<div style="border: solid; border-radius: 5px; min-height: 150px; max-width: 300px; caption-side:top; border-width: 1px;">
+				<div style="border: solid; border-top-left-radius: 5px; border-top-right-radius: 5px; min-height: 30px; max-height: 30px; max-width: 300px; border-width: 1px;">
+					@fidelidade.Parceria.Nome
+				</div>
+				@fidelidade.Descricao
+				<br />
+				<a asp-area="" asp-action="Resgatar/@fidelidade.Id" class="navbar-brand">Resgatar</a>
+
+			</div>
+			<br />
 		}
 	</div>
 </div>

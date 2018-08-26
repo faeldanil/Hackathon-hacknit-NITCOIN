@@ -1,0 +1,16 @@
+﻿@model ScoreClass.Web.Models.Incentivos.Fidelidade
+
+@{
+	Layout = "_Layout";
+}
+
+<div>
+	<h4>Programas disponíveis</h4>
+	<div class="table-responsive">
+		Gostaria de resgatar o voucher abaixo: <br />
+		Empresa: @Model.Parceria.Nome <br />
+		Descricao: @Model.Descricao <br />
+		NITCOINs: @Model.TaxaConversao <br />
+
+	</div>
+</div>

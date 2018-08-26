@@ -5,7 +5,7 @@ namespace ScoreClass.Web.Models.Incentivos
 
 	public enum TipoValor
 	{
-		Reais, Percentual
+		Valor, Percentual
 	}
 
 	public class Fidelidade : Entidade
@@ -18,5 +18,13 @@ namespace ScoreClass.Web.Models.Incentivos
 		public Int32 TaxaConversao { get; set; }
 		public Int32 TempoVigenciaEmDias { get; set; }
 		public String Descricao { get; set; }
+		public Boolean Ativo
+		{
+			get {
+				var hoje = DateTime.Today;
+
+				return (InicioVigencia <= hoje) && (FimVigencia >= hoje);
+			}
+		}
 	}
 }

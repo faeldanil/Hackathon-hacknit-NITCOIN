@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace ScoreClass.Web.Controllers
 {
@@ -9,9 +10,17 @@ namespace ScoreClass.Web.Controllers
 			return View();
 		}
 
-		public IActionResult Fidelidade()
+		public IActionResult Fidelidade(int id)
 		{
-			return View();
+			var parceria = _context?.Parceria?.FirstOrDefault(p => p.Id == id);
+			return View(parceria?.Programas?.Where(p => p.Ativo));
+		}
+
+		public IActionResult Resgatar(int id)
+		{
+			var parceria = _context?.Parceria?.FirstOrDefault(p => p.Id == id);
+			var fidelidade = parceria.Programas.FirstOrDefault(p => p.Id == id);
+			return View(fidelidade);
 		}
 	}
 }
