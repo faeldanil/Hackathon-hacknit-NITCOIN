@@ -22,7 +22,7 @@ namespace ScoreClass.Web.Data
 		public IEnumerable<Responsavel> Responsavel { get => Obter<Responsavel>(); }
 
 		public IEnumerable<Parceria> Parceria { get => Obter<Parceria>(); }
-		public IEnumerable<Fidelidade> Fidelidade { get => Obter<Fidelidade>(); }
+		public IEnumerable<Voucher> Voucher { get => Obter<Voucher>(); }
 		public IEnumerable<NitCoin> NitCoin { get => Obter<NitCoin>(); }
 		public IEnumerable<PoliticaIncentivo> PoliticaIncentivo { get => Obter<PoliticaIncentivo>(); }
 		public IEnumerable<Campanha> Campanha { get => Obter<Campanha>(); }

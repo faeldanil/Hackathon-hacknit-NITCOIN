@@ -27,6 +27,25 @@ namespace ScoreClass.Web.Controllers
 		}
 
 		[HttpPost]
+		public IActionResult ResgatarBeneficio(IFormCollection formCollection)
+		{
+			var parceriaId = Convert.ToInt64(formCollection["parceriaId"]);
+			var fidelidadeId = Convert.ToInt64(formCollection["fidelidadeId"]);
+			var voucherId = Convert.ToInt64(formCollection["voucherId"]);
+			var codigoVoucher = Convert.ToString(formCollection["codigoVoucher"]);
+
+			var parceria = repositorio?.Parceria?.FirstOrDefault(p => p.Id == parceriaId);
+			var fidelidade = parceria.Programas.FirstOrDefault(p => p.Id == fidelidadeId);
+			var voucher = repositorio.Voucher.FirstOrDefault(v => v.Codigo == codigoVoucher);
+
+			if ((voucher.Id != voucherId) || (voucher.Codigo != codigoVoucher) || (voucher.Fidelidade.Id != fidelidadeId) || (voucher.Fidelidade.Parceria.Id != parceriaId))
+				throw new Exception("Voucher Inválido");
+
+			voucher.Resgatado = DateTime.Now;
+			return View("Voucher", voucher);
+		}
+
+		[HttpPost]
 		public IActionResult Resgatar(IFormCollection formCollection)
 		{
 			var parceriaId = Convert.ToInt64(formCollection["parceriaId"]);
@@ -49,6 +68,13 @@ namespace ScoreClass.Web.Controllers
 		public IActionResult Voucher(int id)
 		{
 			var voucher = ResponsavelLogado.Vouchers.FirstOrDefault(v => v.Id == id);
+			return View(voucher);
+		}
+
+		[Route("[controller]/[action]/{codigo}")]
+		public IActionResult Validar(String codigo)
+		{
+			var voucher = repositorio.Voucher.FirstOrDefault(v => v.Codigo == codigo);
 			return View(voucher);
 		}
 	}
