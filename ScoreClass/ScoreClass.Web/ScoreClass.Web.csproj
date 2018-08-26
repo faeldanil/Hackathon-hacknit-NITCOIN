@@ -10,6 +10,12 @@
     <Compile Remove="Data\Migrations\20180825165326_ClassesCadastro.Designer.cs" />
     <Compile Remove="Data\Migrations\20180825181413_ClassesCadastro.cs" />
     <Compile Remove="Data\Migrations\20180825181413_ClassesCadastro.Designer.cs" />
+    <Compile Remove="Migrations\20180825233303_versao_ajuste.cs" />
+    <Compile Remove="Migrations\20180825233303_versao_ajuste.Designer.cs" />
+    <Compile Remove="Migrations\20180826000034_versao_ajuste2.cs" />
+    <Compile Remove="Migrations\20180826000034_versao_ajuste2.Designer.cs" />
+    <Compile Remove="Migrations\20180826000443_versao_ajuste2.cs" />
+    <Compile Remove="Migrations\20180826000443_versao_ajuste2.Designer.cs" />
   </ItemGroup>
 
 

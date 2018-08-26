@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ScoreClass.Web.Data;
 using ScoreClass.Web.Models;
 
@@ -21,9 +22,9 @@ namespace ScoreClass.Web.Controllers
 
         public ActionResult Index()
         {
-            var user = this.User.Identity.Name;
-
-            return View(_context.Matricula.Where(x => x.Aluno.Reponsavel.Email.Descricao == user));
+            //var user = this.User.Identity.Name;
+            //var matricula = _context.Matricula.Include(x => x.Aluno.Reponsavel.Email.Descricao == user);
+            return View();
         }
 
         public ActionResult Details(int id)
