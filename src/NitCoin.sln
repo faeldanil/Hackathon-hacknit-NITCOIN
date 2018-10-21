@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NitCoin.Testes", "Testes\NitCoin.Testes.csproj", "{DD2E8A14-C043-478C-8421-A62B71BE507D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NitCoin.WebApp", "WebApp\NitCoin.WebApp.csproj", "{368EDB10-62CC-4210-83A2-25D80CE37D67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD2E8A14-C043-478C-8421-A62B71BE507D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD2E8A14-C043-478C-8421-A62B71BE507D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD2E8A14-C043-478C-8421-A62B71BE507D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD2E8A14-C043-478C-8421-A62B71BE507D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{368EDB10-62CC-4210-83A2-25D80CE37D67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{368EDB10-62CC-4210-83A2-25D80CE37D67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{368EDB10-62CC-4210-83A2-25D80CE37D67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{368EDB10-62CC-4210-83A2-25D80CE37D67}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {029F7AE7-E832-4C48-B8CB-9BADCEE9DBDF}
+	EndGlobalSection
+EndGlobal
