@@ -2,10 +2,11 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs
-/ScoreClass/.vs
-/ScoreClass/ScoreClass.Testes/obj
-/ScoreClass/ScoreClass.Web/obj
-/ScoreClass/ScoreClass.Web/bin
-/ScoreClass/ScoreClass.Testes/bin/Debug/netcoreapp2.0
-/ScoreClass/ScoreClass.Web/Properties/PublishProfiles
+/.git/
+
+/src/.vs/
+/src/*/Obj/
+/src/*/Bin/
+
+*.user
+*.pubxml

@@ -1,0 +1,22 @@
+﻿@model ScoreClass.Web.Models.Incentivos.Fidelidade
+
+@{
+	Layout = "_Layout";
+}
+
+<div>
+	<h4>Programas disponíveis</h4>
+	<form action="Resgatar" method="post">
+		<input type="hidden" Id="parceriaId" name="parceriaId" value="@Model.Parceria.Id" />
+		<input type="hidden" Id="fidelidadeId" name="fidelidadeId" value="@Model.Id" />
+		<div class="table-responsive">
+			Gostaria de resgatar o voucher abaixo: <br />
+			Empresa: @Model.Parceria.Nome <br />
+			Descricao: @Model.Descricao <br />
+			NITCOINs: @Model.TaxaConversao <br />
+			Validade: @DateTime.Now.AddDays(Model.TempoVigenciaEmDias) <br />
+			<input type="submit" value="Sim" />
+			<input type="submit" value="Nao" formaction="Fidelidade/@Model.Parceria.Id" />
+		</div>
+	</form>
+</div>

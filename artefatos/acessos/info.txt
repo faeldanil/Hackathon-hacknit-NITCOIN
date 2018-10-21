@@ -1,0 +1,24 @@
+O acesso a base da educação deverá ser feito 
+pelos seguintes parâmetros
+
+Linha de comando
+mysql -u hackers1  -h 18.213.80. 144 -p educacao
+mysql -u hackers2  -h 18.213.80. 144 -p educacao
+mysql -u hackers3  -h 18.213.80. 144 -p educacao
+mysql -u hackers4  -h 18.213.80. 144 -p educacao
+mysql -u hackers5  -h 18.213.80. 144 -p educacao
+
+TODOS OS USUÁRIOS ESTÃO CONFIGURADO COM A SENHA 'hacknit'
+
+A alteração da senha é de responsabilidade das equipes
+
+
+SGDB
+Usuário: hackers(número)
+Host: 18.213.80.144
+Porta: 3306
+Base/Esquema: educacao
+Senha: hacknit
+
+
+Está Disponível o backup da base no formato sql
